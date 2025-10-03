@@ -1,0 +1,47 @@
+@use './functions' as *;
+@use './mixins' as *;
+@use './media' as *;
+
+.container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+.hidden-mobile {
+  @include mobile{
+    display: none !important;
+  };
+}
+
+.visible-mobile {
+  @include mobile-above{
+    display: none !important;
+  }
+}
+
+.rect-icon {
+  --restWidthSize: #{rem(24)};
+  --restHeightSize: #{rem(26)};
+  --restMarginLeft: #{rem(15)};
+
+  position: relative;
+  padding-right: calc(var(--restWidthSize) + var(--restMarginLeft));
+  min-height: var(--circlSize);
+
+  &::after {
+    @include rect(var(--restWidthSize), var(--restHeightSize));
+    @include abs-y;
+
+    content: '';
+    right: 0;
+    background:
+            url("../../assets/icons/arrow-right.svg") center no-repeat
+            var(--color)
+    ;
+  }
+}

@@ -1,0 +1,70 @@
+@use "fonts" as *;
+@use "../helpers/variables" as *;
+@use "../helpers/functions" as *;
+@use "../helpers/mixins" as *;
+
+
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base), sans-serif;
+  color: var(--color-black);
+  background-color: var(--color-beige100);
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1, .h1 {
+  @include h1;
+  color: var(--color-white);
+}
+
+h2, .h2 {
+  @include h2;
+  color: var(--color-black);
+}
+
+h3, .h3 {
+  @include h3;
+  color: var(--color-black);
+}
+
+a,
+button,
+input,
+label,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+a,
+button {
+  &[aria-label]{
+    position: relative;
+
+    &:before{
+      @include abs-center;
+      @include square(rem(44));
+
+      content: '';
+    }
+  }
+}
