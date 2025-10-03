@@ -1,6 +1,5 @@
-@use './functions' as *;
-@use './mixins' as *;
-@use "./media" as *;
+@use "fonts" as *;
+@use 'media' as *;
 
 :root {
   --color-black: #1B1F2B;
@@ -26,18 +25,18 @@
 
   --font-family-base: 'Roboto', sans-serif;
 
-  --container-width: #{rem(1170)};
-  --container-padding-x: #{rem(375)};
+  --container-width: #{to-rem(1170)};
+  --container-padding-x: #{to-rem(375)};
 
   --transition-duration: 0.2s;
 
   @include tablet {
-    --container-width: #{rem(918)};
-    --container-padding-x: #{rem(53)};
+    --container-width: #{to-rem(918)};
+    --container-padding-x: #{to-rem(53)};
   }
 
   @include mobile {
-    --container-width: #{rem(318)};
-    --container-padding-x: #{rem(21)};
+    --container-width: #{to-rem(318)};
+    --container-padding-x: #{to-rem(21)};
   }
 }

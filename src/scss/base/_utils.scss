@@ -1,6 +1,4 @@
-@use './functions' as *;
-@use './mixins' as *;
-@use './media' as *;
+@use '../helpers' as *;
 
 .container {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
@@ -25,9 +23,9 @@
 }
 
 .rect-icon {
-  --restWidthSize: #{rem(24)};
-  --restHeightSize: #{rem(26)};
-  --restMarginLeft: #{rem(15)};
+  --restWidthSize: #{to-rem(24)};
+  --restHeightSize: #{to-rem(26)};
+  --restMarginLeft: #{to-rem(15)};
 
   position: relative;
   padding-right: calc(var(--restWidthSize) + var(--restMarginLeft));
@@ -40,8 +38,8 @@
     content: '';
     right: 0;
     background:
-            url("../../assets/icons/arrow-right.svg") center no-repeat
-            var(--color)
+            url("../assets/icons/arrow-right.svg") center no-repeat
+            var(--color-white)
     ;
   }
 }

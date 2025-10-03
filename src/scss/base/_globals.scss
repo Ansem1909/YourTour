@@ -1,8 +1,4 @@
-@use "fonts" as *;
-@use "../helpers/variables" as *;
-@use "../helpers/functions" as *;
-@use "../helpers/mixins" as *;
-
+@use "../helpers" as *;
 
 html {
   &.is-lock {
@@ -62,7 +58,7 @@ button {
 
     &:before{
       @include abs-center;
-      @include square(rem(44));
+      @include square(to-rem(44));
 
       content: '';
     }

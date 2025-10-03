@@ -1,7 +1,7 @@
 @use 'sass:math';
-@use 'functions' as *;
-@use "variables" as *;
-@use "media" as *;
+@use 'media' as *;
+@use 'fonts' as *;
+
 
 @mixin fluid-text($max: 48, $min: 16) {
   font-size:fluid($max, $min);
@@ -93,7 +93,7 @@
 
 @mixin text-style(
   $font-family: var(--font-family-base),
-  $font-size: rem(16),
+  $font-size: 16px,
   $line-height: 120%,
   $letter-spacing: 0,
   $font-weight: 400
@@ -108,48 +108,48 @@
 @mixin h1 {
   @include text-style(
     $font-family: var(--font-family-base),
-    $font-size: rem(96),
+    $font-size: 96px,
     $line-height: 109%,
-    $letter-spacing: rem(1.92),
+    $letter-spacing: 1.92px,
     $font-weight: 700
   );
 
   @include mobile {
-    font-size: rem(34);
+    font-size: 34px;
     line-height: 112%;
-    letter-spacing: rem(0.68);
+    letter-spacing:0.68px;
   }
 }
 
 @mixin h2 {
   @include text-style(
   $font-family: var(--font-family-base),
-  $font-size: rem(59),
+  $font-size: 59px,
   $line-height: 124%,
   $letter-spacing: 0,
   $font-weight: 700
   );
 
   @include mobile {
-    font-size: rem(34);
+    font-size: 34px;
     line-height: 112%;
-    letter-spacing: rem(0.68);
+    letter-spacing: 0.68px;
   }
 }
 
 @mixin h3 {
   @include text-style(
     $font-family: var(--font-family-base),
-    $font-size: rem(35),
+    $font-size: 35px,
     $line-height: 122%,
     $letter-spacing: 0,
     $font-weight: 500
   );
 
   @include mobile {
-    font-size: rem(23);
+    font-size: 23px;
     line-height: 120%;
-    letter-spacing: rem(0.92);
+    letter-spacing: 0.92px;
     font-weight: 700;
   }
 }
@@ -157,14 +157,14 @@
 @mixin p-big {
   @include text-style(
     $font-family: var(--font-family-base),
-    $font-size: rem(23),
+    $font-size: 23px,
     $line-height: 122%,
     $letter-spacing: 0,
     $font-weight: 700
   );
 
   @include mobile {
-    font-size: rem(16);
+    font-size: 16px;
     line-height: 142%;
   }
 }
@@ -172,14 +172,14 @@
 @mixin p-normal {
   @include text-style(
     $font-family: var(--font-family-base),
-    $font-size: rem(20),
+    $font-size: 20px,
     $line-height: 142%,
     $letter-spacing: 0,
     $font-weight: 400
   );
 
   @include mobile {
-    font-size: rem(16);
+    font-size: 16px;
     line-height: 142%;
   }
 }
@@ -187,16 +187,15 @@
 @mixin p-small {
   @include text-style(
     $font-family: var(--font-family-base),
-    $font-size: rem(17),
+    $font-size: 17px,
     $line-height: 142%,
-    $letter-spacing: rem(-0.17),
+    $letter-spacing: -0.17px,
     $font-weight: 400
   );
 
   @include mobile {
-    font-size: rem(16);
+    font-size: 16px;
     line-height: 142%;
-    letter-spacing: rem(-0.16),
-
+    letter-spacing: -0.16px,
   }
 }
