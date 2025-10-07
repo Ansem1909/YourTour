@@ -1,6 +1,5 @@
 @use 'sass:math';
 @use 'media' as *;
-@use 'fonts' as *;
 
 
 @mixin fluid-text($max: 48, $min: 16) {
