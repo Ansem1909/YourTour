@@ -8,18 +8,32 @@
     justify-content: space-between;
     align-items: center;
     column-gap: 1rem;
+  }
 
-    &__menu {
-      &-list{
-        display: flex !important;
-        align-items: center;
-        column-gap: to-rem(50);
+  &__menu {
+    &-list{
+      display: flex;
+      align-items: center;
+      column-gap: to-rem(50);
 
-        @include laptop{
-          column-gap: to-rem(30);
-        }
+      @include laptop{
+        column-gap: to-rem(30);
       }
     }
+
+    &-link{
+      @include p-normal;
+      color: var(--color-white);
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__contact-us-link{
+    @include p-normal;
+    color: var(--color-white);
   }
 
 }

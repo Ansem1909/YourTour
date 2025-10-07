@@ -1,0 +1,7 @@
+@use "../helpers" as *;
+@use "../base";
+
+.header-and-hero-background{
+  background-image: url("../assets/images/header-and-hero-background.jpg");
+  width: 100%;
+}
