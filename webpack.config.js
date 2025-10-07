@@ -25,6 +25,31 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.html$/i,
+        loader: 'html-loader',
+        options: {
+          sources: {
+            list: [
+              {
+                tag: 'img',
+                attribute: 'src',
+                type: 'src',
+              },
+              {
+                tag: 'img',
+                attribute: 'srcset',
+                type: 'srcset',
+              },
+              {
+                tag: 'link',
+                attribute: 'href',
+                type: 'src',
+              }
+            ]
+          }
+        }
+      },
+      {
         test: /\.scss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
