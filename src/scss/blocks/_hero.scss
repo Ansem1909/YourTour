@@ -1,0 +1,41 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.hero {
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: to-rem(49);
+    text-align: center;
+
+    @include mobile-above {
+      padding-block: to-rem(119);
+    }
+
+    @include laptop-above {
+       padding-block: to-rem(118.5);
+     }
+
+    @include mobile {
+      padding-block: to-rem(52);
+    }
+  }
+
+  &__subtitle {
+    max-width: to-rem(562);
+    @include p-normal;
+    color: var(--color-white);
+
+    @include tablet {
+      max-width: to-rem(400);
+    }
+
+    @include mobile {
+      max-width: to-rem(280);
+    }
+  }
+
+}

@@ -8,6 +8,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/',
   },
   devServer: {
     static: './dist',
@@ -44,7 +45,7 @@ module.exports = {
                 tag: 'link',
                 attribute: 'href',
                 type: 'src',
-              }
+              },
             ]
           }
         }
@@ -58,9 +59,9 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: (pathData) => {
-            const filename = pathData.filename;
+            const relativePath = path.relative(path.resolve(__dirname, 'src'), pathData.filename);
 
-            if (filename.includes('/icons/') || filename.includes('\\icons\\')) {
+            if (relativePath.includes('/icons/') || relativePath.includes('\\icons\\')) {
               return 'assets/icons/[hash][ext][query]';
             } else {
               return 'assets/images/[hash][ext][query]';

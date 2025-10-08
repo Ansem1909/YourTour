@@ -29,6 +29,11 @@
 
   --transition-duration: 0.2s;
 
+  @include laptop {
+    --container-width: #{to-rem(918)};
+    --container-padding-x: #{to-rem(53)};
+  }
+
   @include tablet {
     --container-width: #{to-rem(918)};
     --container-padding-x: #{to-rem(53)};

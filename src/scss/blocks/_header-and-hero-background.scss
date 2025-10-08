@@ -2,6 +2,12 @@
 @use "../base";
 
 .header-and-hero-background{
+  height: 100%;
   background-image: url("../assets/images/header-and-hero-background.jpg");
-  width: 100%;
+  background-size: cover;
+  background-position: center;
+
+  @include tablet {
+    background-image: url("../assets/images/header-and-hero-bg-for-tablet.jpg");
+  }
 }

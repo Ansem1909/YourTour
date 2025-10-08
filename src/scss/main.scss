@@ -2,4 +2,7 @@
 @use "base" as *;
 
 @use "blocks/header-and-hero-background";
-@use 'blocks/header';
+@use "blocks/header";
+@use "blocks/logo";
+@use "blocks/hero";
+@use "blocks/button";

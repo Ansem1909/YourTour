@@ -1,0 +1,16 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.button {
+  &--white{
+    padding: to-rem(5) to-rem(20);
+    background-color: var(--color-white);
+    border-radius: to-rem(10);
+    @include p-small;
+    color: var(--color-black);
+
+    @include mobile {
+
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.logo {
+  &__image {
+    @include mobile {
+      width: to-rem(138);
+      height: to-rem(23);
+    }
+  }
+}
