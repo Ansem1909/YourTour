@@ -8,11 +8,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: to-rem(49);
+    row-gap: to-rem(49.5);
     text-align: center;
 
     @include mobile-above {
-      padding-block: to-rem(119);
+      padding-block: to-rem(118);
     }
 
     @include laptop-above {
@@ -21,6 +21,7 @@
 
     @include mobile {
       padding-block: to-rem(52);
+      row-gap: to-rem(40.5);
     }
   }
 

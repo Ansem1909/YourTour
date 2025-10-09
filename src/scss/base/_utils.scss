@@ -21,25 +21,3 @@
     display: none !important;
   }
 }
-
-.rect-icon {
-  --restWidthSize: #{to-rem(24)};
-  --restHeightSize: #{to-rem(26)};
-  --restMarginLeft: #{to-rem(15)};
-
-  position: relative;
-  padding-right: calc(var(--restWidthSize) + var(--restMarginLeft));
-  min-height: var(--circlSize);
-
-  &::after {
-    @include rect(var(--restWidthSize), var(--restHeightSize));
-    @include abs-y;
-
-    content: '';
-    right: 0;
-    background:
-            url("../assets/icons/arrow-right.svg") center no-repeat
-            var(--color-white)
-    ;
-  }
-}

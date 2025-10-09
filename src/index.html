@@ -52,18 +52,463 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__container container">
         <h1 class="hero__title" id="hero-title">Идеальные путешествия существуют</h1>
-        <p class="hero__subtitle">Идейные соображения высшего порядка а также рамки и место обучения кадров</p>
-        <a href="#tours-section" class="hero__button button button--white">Найти тур</a>
+        <p class="hero__subtitle">Идейные соображения высшего порядка, а также рамки и место обучения кадров</p>
+        <a href="#tours" class="hero__button button button--white">Найти тур</a>
       </div>
     </section>
   </div>
 
-  <section  class="may">
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda consequatur dolores ea eaque ex, exercitationem id itaque laboriosam maxime mollitia nemo odio quidem saepe sapiente sequi totam voluptatum. Ducimus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet autem beatae dolore ducimus facilis ipsum labore molestiae pariatur perferendis qui quis quisquam, ratione sint tempore, tenetur, totam veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi eveniet laborum tempore totam velit. Animi doloribus ducimus eaque est facilis hic itaque iure qui. Ad aliquam doloribus in soluta ut. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, cumque dolores hic libero perspiciatis veniam voluptates? Adipisci aut cum delectus error et fugiat illum impedit iure molestiae molestias nihil, sequi! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi architecto commodi corporis dolore esse exercitationem expedita in, ipsam minima minus molestias nemo nulla provident quas quasi quia quidem sint totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque ea earum facilis harum iste placeat quibusdam quod. Autem quis quod rem veritatis! Ab adipisci dolore ea odio praesentium quas. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto aspernatur eius iusto non quaerat vel voluptatum. Ab accusamus cumque dignissimos, et ex fugiat impedit itaque nobis, porro quia quisquam saepe?</div>
-  </section>
-
-  <section id="tours-section" class="tab-choose-tour">
-    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias assumenda consequatur dolores ea eaque ex, exercitationem id itaque laboriosam maxime mollitia nemo odio quidem saepe sapiente sequi totam voluptatum. Ducimus?</div>
+  <section class="section section--tabs" aria-labelledby="choose-tour-title" id="tours">
+    <div class="section__container section__container--tabs container">
+      <header class="section__header">
+        <h2 class="section__title" id="choose-tour-title">Выбери свой тур</h2>
+      </header>
+      <div class="section__body tabs" data-js-tabs>
+        <header class="tabs__header">
+          <div class="tabs__buttons"
+              role="tablist"
+              aria-labelledby="blog-category-title"
+          >
+            <button
+                class="tabs__button is-active"
+                type="button"
+                id="tab-1"
+                role="tab"
+                aria-controls="tabpanel-1"
+                data-js-tabs-button
+                aria-selected="true"
+            >
+              Популярные
+            </button>
+            <button
+                class="tabs__button"
+                type="button"
+                id="tab-2"
+                role="tab"
+                aria-controls="tabpanel-2"
+                data-js-tabs-button
+                aria-selected="false"
+                tabindex="-1"
+            >
+              Авторские
+            </button>
+            <button
+                class="tabs__button"
+                type="button"
+                id="tab-3"
+                role="tab"
+                aria-controls="tabpanel-3"
+                data-js-tabs-button
+                aria-selected="false"
+                tabindex="-1"
+            >
+              Походы
+            </button>
+            <button
+                class="tabs__button"
+                type="button"
+                id="tab-4"
+                role="tab"
+                aria-controls="tabpanel-4"
+                data-js-tabs-button
+                aria-selected="false"
+                tabindex="-1"
+            >
+              Сплавы
+            </button>
+            <button
+                class="tabs__button"
+                type="button"
+                id="tab-5"
+                role="tab"
+                aria-controls="tabpanel-5"
+                data-js-tabs-button
+                aria-selected="false"
+                tabindex="-1"
+            >
+              Велопрогулки
+            </button>
+          </div>
+        </header>
+        <div class="tabs__body">
+          <div class="tabs__content is-active"
+               id="tabpanel-1"
+               aria-labelledby="tab-1"
+               tabindex="0"
+               data-js-tabs-content
+          >
+            <ul class="cards-grid cards-grid--small">
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--car-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--desert-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--mountains-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--city-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--beach-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--lake-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+            </ul>
+          </div>
+          <div class="tabs__content"
+               id="tabpanel-2"
+               aria-labelledby="tab-2"
+               tabindex="0"
+               data-js-tabs-content
+          >
+            <ul class="cards-grid cards-grid--small">
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--car-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--desert-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--mountains-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--city-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--beach-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--lake-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+            </ul>
+          </div>
+          <div class="tabs__content"
+               id="tabpanel-3"
+               aria-labelledby="tab-3"
+               tabindex="0"
+               data-js-tabs-content
+          >
+            <ul class="cards-grid cards-grid--small">
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--car-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--desert-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--mountains-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--city-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--beach-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--lake-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+            </ul>
+          </div>
+          <div class="tabs__content"
+               id="tabpanel-4"
+               aria-labelledby="tab-4"
+               tabindex="0"
+               data-js-tabs-content
+          >
+            <ul class="cards-grid cards-grid--small">
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--car-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--desert-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--mountains-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--city-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--beach-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--lake-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+            </ul>
+          </div>
+          <div class="tabs__content"
+               id="tabpanel-5"
+               aria-labelledby="tab-5"
+               tabindex="0"
+               data-js-tabs-content
+          >
+            <ul class="cards-grid cards-grid--small">
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--car-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--desert-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--mountains-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--city-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--beach-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+              <li class="cards-grid__item">
+                <article class="tour-card tour-card--lake-bg">
+                  <div class="tour-card__content">
+                    <h3 class="tour-card__title">Путешествие в горы</h3>
+                    <p class="tour-card__price">от 80 000 руб</p>
+                  </div>
+                  <a href="/" class="tour-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </body>
 </html>

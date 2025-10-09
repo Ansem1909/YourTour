@@ -1,0 +1,91 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.tour-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: to-rem(370);
+  height: to-rem(531);
+  border-radius: to-rem(50);
+  padding: to-rem(50);
+
+  @include tablet {
+    width: to-rem(450);
+  }
+
+  @include mobile {
+    @include square(to-rem(318));
+    border-radius: to-rem(20);
+    padding: to-rem(26);
+  }
+
+  &--car-bg,
+  &--desert-bg,
+  &--mountains-bg,
+  &--city-bg,
+  &--beach-bg,
+  &--lake-bg {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &--car-bg {
+    background-image: var(--gradient-top-to-bottom),
+      url("../assets/images/tabs-card/card-tour-1.jpg")
+    ;
+  }
+
+  &--desert-bg {
+    background-image: var(--gradient-top-to-bottom),
+      url("../assets/images/tabs-card/card-tour-2.jpg")
+    ;
+
+    @include tablet {
+      background-image: var(--gradient-top-to-bottom),
+        url("../assets/images/tabs-card/card-tour--2.jpg")
+      ;
+    }
+  }
+
+  &--mountains-bg {
+    background-image: var(--gradient-top-to-bottom),
+      url("../assets/images/tabs-card/card-tour-3.jpg")
+    ;
+  }
+
+  &--city-bg {
+    background-image: var(--gradient-top-to-bottom),
+      url("../assets/images/tabs-card/card-tour-4.jpg")
+    ;
+  }
+
+  &--beach-bg {
+    background-image: var(--gradient-top-to-bottom),
+      url("../assets/images/tabs-card/card-tour-5.jpg")
+    ;
+  }
+
+  &--lake-bg {
+    background-image: var(--gradient-top-to-bottom),
+      url("../assets/images/tabs-card/card-tour-6.jpg")
+    ;
+  }
+
+  &__title {
+    max-width: to-rem(224);
+    color: var(--color-white);
+    margin-bottom: to-rem(16);
+
+    @include tablet {
+      max-width: to-rem(370);
+      margin-bottom: to-rem(14);
+    }
+  }
+
+  &__price {
+    @include p-small;
+    color: var(--color-white);
+  }
+}
