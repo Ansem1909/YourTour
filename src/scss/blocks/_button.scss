@@ -2,15 +2,18 @@
 @use "../base" as *;
 
 .button {
-  &--white{
+  &--white {
     padding: to-rem(5) to-rem(20);
     background-color: var(--color-white);
     border-radius: to-rem(10);
     @include p-small;
     color: var(--color-black);
+  }
 
-    @include mobile {
-
-    }
+  &--arrow {
+    color: var(--color-white);
+    @include p-big;
+    display: inline-flex;
+    justify-content: left;
   }
 }

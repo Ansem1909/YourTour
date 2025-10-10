@@ -5,10 +5,10 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  row-gap: to-rem(104);
+  row-gap: to-rem(106);
 
   @include tablet {
-    gap: to-rem(103);
+    gap: to-rem(104);
   }
 
   @include mobile {
@@ -33,6 +33,7 @@
     background: none;
     @include p-big;
     padding: 0;
+    cursor: pointer;
 
     &::after {
       content: '';
