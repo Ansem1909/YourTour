@@ -19,6 +19,8 @@
   --color-beige200: #F4F0E9;
   --color-beige100: #F9F7F4;
 
+  --color-header: rgba(243, 239, 232, 0.6);
+
   --gradient-left-to-right: linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%);
   --gradient-top-to-bottom: linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%);
 
@@ -27,7 +29,7 @@
   --container-width: #{to-rem(1170)};
   --container-padding-x: #{to-rem(375)};
 
-  --transition-duration: 0.2s;
+  --transition-duration: 0.3s;
 
   @include laptop {
     --container-width: #{to-rem(918)};
