@@ -48,6 +48,7 @@
       </a>
     </div>
   </header>
+
   <section class="hero header-and-hero-background" aria-labelledby="hero-title">
     <div class="hero__container container">
       <h1 class="hero__title" id="hero-title">Идеальные путешествия существуют</h1>
@@ -55,6 +56,7 @@
       <a href="#tours" class="hero__button button button--white">Найти тур</a>
     </div>
   </section>
+
   <section class="section section--tabs" aria-labelledby="choose-tour-title" id="tours">
     <div class="section__container section__container--tabs container">
       <header class="section__header">
@@ -864,6 +866,139 @@
             </ul>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__container container" aria-labelledby="contacts-form">
+      <header class="section__header">
+        <h2 class="section__title" id="contacts-form">Собери свой тур</h2>
+        <p class="section__description">Идейные соображения высшего порядка, а также рамки и место обучения кадров</p>
+      </header>
+      <div class="section__body">
+        <form action="/" class="tour-selection-form" novalidate data-js-form>
+          <div class="tour-selection-form__cell field">
+            <label class="field__label" for="firstName">
+              Имя <span class="field__required-star" aria-hidden="true">*</span>
+            </label>
+            <input class="field__control"
+                   id="firstName"
+                   name="firstName"
+                   placeholder="Введите ваше имя"
+                   minlength="2"
+                   required
+            >
+          </div>
+          <div class="tour-selection-form__cell field field--select">
+            <label class="field__label" for="direction">
+              Направление
+            </label>
+            <div class="field__select">
+              <select class="field__select-control" id="direction" name="direction">
+                <option value="">-- Куда хотите ехать --</option>
+                <option value="Vienna">Вена</option>
+                <option value="Yalta">Ялта</option>
+                <option value="Staritsa">Старица</option>
+              </select>
+            </div>
+          </div>
+          <div class="tour-selection-form__cell field">
+            <label class="field__label" for="email">
+              Email <span class="field__required-star" aria-hidden="true">*</span>
+            </label>
+            <input class="field__control"
+                   data-js-form-email
+                   id="email"
+                   name="email"
+                   placeholder="example@mail.com"
+                   required
+                   type="email"
+            >
+          </div>
+          <div class="tour-selection-form__cell field">
+            <label class="field__label" for="phone">Телефон</label>
+            <input class="field__control"
+                   data-js-form-phone
+                   id="phone"
+                   name="phone"
+                   placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _"
+                   type="tel"
+            >
+          </div>
+          <div class="tour-selection-form__cell field">
+            <label class="field__label" for="date-from">Дата от</label>
+            <input class="field__control"
+                   data-js-form-date
+                   id="date-from"
+                   name="dateFrom"
+                   placeholder="ДД.ММ.ГГГГ"
+                   type="date"
+            >
+            <div class="field__error" data-js-date-error></div>
+          </div>
+          <div class="tour-selection-form__cell field">
+            <label class="field__label" for="date-to">Дата до</label>
+            <input class="field__control"
+                   data-js-form-date
+                   id="date-to"
+                   name="dateTo"
+                   placeholder="ДД.ММ.ГГГГ"
+                   type="date"
+            >
+            <div class="field__error" data-js-date-error></div>
+          </div>
+          <div class="tour-selection-form__cell tour-selection-form__cell--wide field">
+            <label class="field__label" for="message">
+              Комментарий
+            </label>
+            <textarea class="field__control"
+                      id="message"
+                      name="message"
+            ></textarea>
+          </div>
+          <div class="tour-selection-form__cell field">
+            <span class="field__label">Вам есть 18 лет?</span>
+            <div class="field__radios">
+              <label class="field__radio">
+                <input type="radio" name="isAdult" value="yes" class="field__radio-input">
+                <span class="field__radio-text">Да</span>
+              </label>
+
+              <label class="field__radio">
+                <input type="radio" name="isAdult" value="no" class="field__radio-input">
+                <span class="field__radio-text">Нет</span>
+              </label>
+            </div>
+          </div>
+          <div class="tour-selection-form__cell tour-selection-form__cell--wide">
+            <div class="tour-selection-form__actions">
+              <div class="tour-selection-form__agreement">
+                <label class="checkbox">
+                  <input class="checkbox__input" type="checkbox" name="agreement" required>
+                  <span class="checkbox__label">
+                    Нажимая кнопку, я принимаю условия
+                    <a href="/" target="_blank" class="checkbox__link">
+                      Лицензионного договора
+                    </a>
+                  </span>
+                </label>
+              </div>
+              <div class="tour-selection-form__buttons">
+                <button class="feedback-form__submit-button button button--submit-form"
+                        type="submit"
+                >
+                  Найти тур
+                </button>
+                <button class="feedback-form__submit-button button button--reset-form"
+                        type="reset"
+                >
+                  Сбросить
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </section>
