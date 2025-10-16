@@ -10,13 +10,16 @@ class FormValidator {
   }
 
   constructor(rootElement) {
+    if (!rootElement) {
+      console.warn('Form element not found for FormValidator');
+      return;
+    }
+
     this.rootElement = rootElement;
     this.phoneElement = this.rootElement.querySelector(this.selectors.phone);
     this.emailElement = this.rootElement.querySelector(this.selectors.email);
     this.dateErrorElements = this.rootElement.querySelectorAll(this.selectors.dateError);
     this.dateElements = this.rootElement.querySelectorAll(this.selectors.dateInput);
-
-    if (!this.phoneElement || !this.emailElement) return;
 
     this.setMinDates();
     this.bindEvents();
@@ -54,6 +57,8 @@ class FormValidator {
     } else {
       e.target.setCustomValidity('');
     }
+
+    e.target.reportValidity();
   }
 
   onDateChange = (e) => {
@@ -79,9 +84,19 @@ class FormValidator {
 
     const areDatesValid = this.validateDates();
 
+    const agreementCheckbox = this.rootElement.querySelector('input[name="agreement"]');
+    if (!agreementCheckbox.checked) {
+      agreementCheckbox.setCustomValidity('Необходимо принять условия соглашения');
+      agreementCheckbox.reportValidity();
+      return;
+    } else {
+      agreementCheckbox.setCustomValidity('');
+    }
+
     if (this.rootElement.checkValidity() && areDatesValid) {
       console.log('Форма отправлена!', this.getFormData());
-      // this.rootElement.submit();
+    } else {
+      this.showBrowserValidation();
     }
   }
 
@@ -89,18 +104,26 @@ class FormValidator {
   onReset = () => {
     this.clearAllErrors();
     this.setMinDates();
+
+    if (this.emailElement) {
+      this.emailElement.setCustomValidity('');
+    }
+    const agreementCheckbox = this.rootElement.querySelector('input[name="agreement"]');
+    if (agreementCheckbox) {
+      agreementCheckbox.setCustomValidity('');
+    }
   }
 
-  // Валидация всех дат при отправке
   validateDates() {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
     let isValid = true;
 
-    this.dateElements.forEach((dateElement, index) => {
+    this.dateElements.forEach((dateElement) => {
       if (dateElement.value && new Date(dateElement.value) < today) {
-        const errorElement = this.dateErrorElements[index];
+        const fieldElement = dateElement.closest('.field');
+        const errorElement = fieldElement.querySelector(this.selectors.dateError);
         this.showError(errorElement, 'Нельзя выбрать прошедшую дату');
         isValid = false;
       }
@@ -129,22 +152,35 @@ class FormValidator {
     });
   }
 
+  showBrowserValidation() {
+    const invalidField = this.rootElement.querySelector(':invalid');
+    if (invalidField) {
+      invalidField.focus();
+      invalidField.reportValidity();
+    }
+  }
+
   getFormData() {
     return {
       firstName: this.rootElement.querySelector('#firstName').value,
       direction: this.rootElement.querySelector('#direction').value,
-      email: this.emailElement.value,
-      phone: this.phoneElement.value,
+      email: this.emailElement ? this.emailElement.value : '',
+      phone: this.phoneElement ? this.phoneElement.value : '',
       dateFrom: this.rootElement.querySelector('#date-from').value,
       dateTo: this.rootElement.querySelector('#date-to').value,
       message: this.rootElement.querySelector('#message').value,
-      isAdult: this.rootElement.querySelector('input[name="isAdult"]:checked')?.value
+      isAdult: this.rootElement.querySelector('input[name="isAdult"]:checked')?.value,
+      agreement: this.rootElement.querySelector('input[name="agreement"]').checked
     };
   }
 
   bindEvents() {
-    this.phoneElement.addEventListener('input', this.onPhoneInput);
-    this.emailElement.addEventListener('input', this.onEmailInput);
+    if (this.phoneElement) {
+      this.phoneElement.addEventListener('input', this.onPhoneInput);
+    }
+    if (this.emailElement) {
+      this.emailElement.addEventListener('input', this.onEmailInput);
+    }
     this.dateElements.forEach(dateElement => {
       dateElement.addEventListener('change', this.onDateChange);
     });
@@ -152,5 +188,12 @@ class FormValidator {
     this.rootElement.addEventListener('reset', this.onReset);
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const formElement = document.querySelector(rootSelector);
+  if (formElement) {
+    new FormValidator(formElement);
+  }
+});
 
 export default FormValidator;

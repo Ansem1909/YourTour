@@ -874,10 +874,10 @@
     <div class="section__container container" aria-labelledby="contacts-form">
       <header class="section__header">
         <h2 class="section__title" id="contacts-form">Собери свой тур</h2>
-        <p class="section__description">Идейные соображения высшего порядка, а также рамки и место обучения кадров</p>
+        <p class="section__description">Идейные соображения высшего порядка,<br>а также рамки и место обучения кадров</p>
       </header>
       <div class="section__body">
-        <form action="/" class="tour-selection-form" novalidate data-js-form>
+        <form action="/" method="post" class="tour-selection-form" novalidate data-js-form>
           <div class="tour-selection-form__cell field">
             <label class="field__label" for="firstName">
               Имя <span class="field__required-star" aria-hidden="true">*</span>
@@ -892,11 +892,11 @@
           </div>
           <div class="tour-selection-form__cell field field--select">
             <label class="field__label" for="direction">
-              Направление
+              Направление <span class="field__required-star" aria-hidden="true">*</span>
             </label>
             <div class="field__select">
-              <select class="field__select-control" id="direction" name="direction">
-                <option value="">-- Куда хотите ехать --</option>
+              <select class=" field__control field__select-control" id="direction" name="direction" required>
+                <option class="field__select-placeholder" value="" selected disabled>Куда хотите ехать</option>
                 <option value="Vienna">Вена</option>
                 <option value="Yalta">Ялта</option>
                 <option value="Staritsa">Старица</option>
