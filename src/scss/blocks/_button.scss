@@ -2,6 +2,8 @@
 @use "../base" as *;
 
 .button {
+  cursor: pointer;
+
   &--white {
     padding: to-rem(5) to-rem(20);
     background-color: var(--color-white);
@@ -15,5 +17,44 @@
     @include p-big;
     display: inline-flex;
     justify-content: left;
+
+    &:hover{}
+  }
+
+  &__form {
+    padding: to-rem(15) to-rem(70.5);
+    border: none;
+    border-radius: to-rem(10);
+    @include p-normal;
+
+    @include mobile {
+      padding: to-rem(12) to-rem(29.5);
+    }
+
+    &--submit {
+      background-color: var(--color-green400);
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-green300);
+      }
+
+      &:active {
+        background-color: var(--color-green200);
+      }
+    }
+
+    &--reset {
+      background-color: var(--color-green100);
+      color: var(--color-green400);
+
+      &:hover {
+        background-color: var(--color-gray100);
+      }
+
+      &:active {
+        background-color: var(--color-gray200);
+      }
+    }
   }
 }

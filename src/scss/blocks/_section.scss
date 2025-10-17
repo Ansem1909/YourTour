@@ -36,9 +36,10 @@
     row-gap: to-rem(30);
   }
 
-  &__subtitle {
+  &__description {
     max-width: to-rem(400);
     @include p-normal;
     color: var(--color-gray300);
+    text-align: center;
   }
 }

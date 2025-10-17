@@ -4,7 +4,7 @@
 .tour-selection-form {
   max-width: to-rem(1170);
   max-height: to-rem(986);
-  padding: to-rem(70);
+  padding: to-rem(71);
   border-radius: to-rem(50);
   background-color: var(--color-white);
   display: grid;
@@ -18,5 +18,11 @@
       width: 100%;
       grid-column: -1 / 1;
     }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: to-rem(30);
   }
 }

@@ -918,35 +918,36 @@
           </div>
           <div class="tour-selection-form__cell field">
             <label class="field__label" for="phone">Телефон</label>
-            <input class="field__control"
-                   data-js-form-phone
-                   id="phone"
-                   name="phone"
-                   placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _"
-                   type="tel"
-            >
+              <input class="field__control"
+                     data-js-form-phone
+                     id="phone"
+                     name="phone"
+                     placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _"
+                     type="tel">
           </div>
           <div class="tour-selection-form__cell field">
             <label class="field__label" for="date-from">Дата от</label>
             <input class="field__control"
-                   data-js-form-date
+                   type="text"
+                   onfocus="this.type='date'"
+                   onblur="this.type='text'"
+                   data-js-date-from
                    id="date-from"
                    name="dateFrom"
                    placeholder="ДД.ММ.ГГГГ"
-                   type="date"
             >
-            <div class="field__error" data-js-date-error></div>
           </div>
           <div class="tour-selection-form__cell field">
             <label class="field__label" for="date-to">Дата до</label>
             <input class="field__control"
-                   data-js-form-date
+                   type="text"
+                   onfocus="this.type='date'"
+                   onblur="this.type='text'"
+                   data-js-date-to
                    id="date-to"
                    name="dateTo"
                    placeholder="ДД.ММ.ГГГГ"
-                   type="date"
             >
-            <div class="field__error" data-js-date-error></div>
           </div>
           <div class="tour-selection-form__cell tour-selection-form__cell--wide field">
             <label class="field__label" for="message">
@@ -964,7 +965,6 @@
                 <input type="radio" name="isAdult" value="yes" class="field__radio-input">
                 <span class="field__radio-text">Да</span>
               </label>
-
               <label class="field__radio">
                 <input type="radio" name="isAdult" value="no" class="field__radio-input">
                 <span class="field__radio-text">Нет</span>
@@ -972,30 +972,34 @@
             </div>
           </div>
           <div class="tour-selection-form__cell tour-selection-form__cell--wide">
-            <div class="tour-selection-form__actions">
-              <div class="tour-selection-form__agreement">
-                <label class="checkbox">
-                  <input class="checkbox__input" type="checkbox" name="agreement" required>
-                  <span class="checkbox__label">
+            <div class="tour-selection-form__agreement">
+              <label class="field__checkbox">
+                <input class="field__checkbox-input"
+                       data-js-form-agreement
+                       type="checkbox"
+                       name="agreement"
+                       required>
+                <span class="field__checkbox-label">
                     Нажимая кнопку, я принимаю условия
-                    <a href="/" target="_blank" class="checkbox__link">
+                    <a href="/" target="_blank" class="field__checkbox-link">
                       Лицензионного договора
                     </a>
                   </span>
-                </label>
-              </div>
-              <div class="tour-selection-form__buttons">
-                <button class="feedback-form__submit-button button button--submit-form"
-                        type="submit"
-                >
-                  Найти тур
-                </button>
-                <button class="feedback-form__submit-button button button--reset-form"
-                        type="reset"
-                >
-                  Сбросить
-                </button>
-              </div>
+              </label>
+            </div>
+            </div>
+          <div class="tour-selection-form__cell tour-selection-form__cell--wide">
+            <div class="tour-selection-form__buttons">
+              <button class="tour-selection-form__button button button__form button__form--submit"
+                      type="submit"
+              >
+                Найти тур
+              </button>
+              <button class="tour-selection-form__button button button__form button__form--reset"
+                      type="reset"
+              >
+                Сбросить
+              </button>
             </div>
           </div>
         </form>
