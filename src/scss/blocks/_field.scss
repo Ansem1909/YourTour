@@ -4,7 +4,7 @@
 .field {
   display: flex;
   flex-direction: column;
-  row-gap: to-rem(7);
+  row-gap: to-rem(6);
 
   &__label {
     @include p-normal;
@@ -16,7 +16,7 @@
     color: var(--color-black);
     background-color: var(--color-beige100);
     padding: to-rem(20);
-    border: none;
+    border: 1px solid var(--color-beige200);
     border-radius: to-rem(10);
     transition: color var(--transition-duration) ease;
 
@@ -47,8 +47,8 @@
     &::after {
       content: "";
       position: absolute;
-      top: 50%;
-      right: to-rem(20);
+      top: 52%;
+      right: to-rem(23);
       transform: translateY(-50%);
       width: to-rem(20);
       height: to-rem(20);
