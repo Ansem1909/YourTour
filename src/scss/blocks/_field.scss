@@ -6,6 +6,10 @@
   flex-direction: column;
   row-gap: to-rem(6);
 
+  @include mobile {
+    row-gap: to-rem(8);
+  }
+
   &__label {
     @include p-normal;
     color: var(--color-black);
@@ -19,6 +23,10 @@
     border: 1px solid var(--color-beige200);
     border-radius: to-rem(10);
     transition: color var(--transition-duration) ease;
+
+    @include mobile {
+      padding: to-rem(9.8);
+    }
 
     &::placeholder {
       color: var(--color-gray300);
@@ -38,6 +46,10 @@
       resize: none;
       height: to-rem(153);
       overflow-y: auto;
+
+      @include mobile {
+        height: to-rem(132);
+      }
     }
   }
 
@@ -50,19 +62,30 @@
       top: 52%;
       right: to-rem(23);
       transform: translateY(-50%);
-      width: to-rem(20);
-      height: to-rem(20);
+      @include square(to-rem(20));
       background-image: url(@icons/black-select-arrow.svg);
       background-repeat: no-repeat;
       background-position: center;
       pointer-events: none;
       z-index: 1;
+
+      @include mobile {
+        right: to-rem(14);
+      }
     }
   }
 
   &__select-control {
     min-width: to-rem(500);
     appearance: none;
+
+    @include tablet {
+      min-width: to-rem(389);
+    }
+
+    @include mobile {
+      min-width: to-rem(278);
+    }
 
     &:invalid,
     &[value=""] {
@@ -120,18 +143,25 @@
     color: var(--color-black);
     cursor: pointer;
 
+    @include mobile {
+      padding-left: to-rem(30);
+    }
+
     &::before {
       content: '';
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
-      width: to-rem(26);
-      height: to-rem(26);
+      @include square(to-rem(26));
       border: 2px solid var(--color-black);
       border-radius: 50%;
       background-color: var(--color-white);
       transition: all var(--transition-duration) ease;
+
+      @include mobile {
+        @include square(to-rem(20));
+      }
     }
 
     &::after {
@@ -140,33 +170,62 @@
       left: to-rem(7);
       top: 50%;
       transform: translateY(-50%) scale(0);
-      width: to-rem(12);
-      height: to-rem(12);
+      @include square(to-rem(12));
       border-radius: 50%;
       background-color: var(--color-black);
       transition: transform var(--transition-duration) ease;
+
+      @include mobile {
+        left: to-rem(4);;
+        @include square(9);
+      }
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: to-rem(12);
+
+    @include mobile {
+      gap: to-rem(8);
     }
   }
 
   &__checkbox-label {
     position: relative;
-    padding-left: to-rem(36);
+    padding-left: to-rem(45);
     @include p-small;
     color: var(--color-gray300);
     cursor: pointer;
     line-height: 1.4;
+
+    @include tablet {
+      padding-left: to-rem(37);
+    }
+
+    @include mobile {
+      padding-left: to-rem(31);
+    }
 
     &::before {
       content: '';
       position: absolute;
       left: 0;
       top: to-rem(-2);
-      width: to-rem(26);
-      height: to-rem(26);
+      @include square(to-rem(26));
       border: 2px solid var(--color-black);
       border-radius: to-rem(3);
       background-color: var(--color-white);
       transition: all var(--transition-duration) ease;
+
+      @include tablet {
+        top: to-rem(-1);
+      }
+
+      @include mobile {
+        @include square(to-rem(20));
+      }
     }
 
     &::after {
@@ -182,6 +241,11 @@
       background-position: center;
       opacity: 0;
       transition: all var(--transition-duration) ease;
+
+      @include mobile {
+        left: to-rem(11);
+        top: to-rem(9);
+      }
     }
   }
 
@@ -199,5 +263,9 @@
   &__checkbox-input:checked + .field__checkbox-label::after {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__checkbox-link {
+    display: inline;
   }
 }

@@ -15,6 +15,10 @@
     align-items: center;
     row-gap: to-rem(100);
 
+    @include mobile {
+      row-gap: to-rem(40);
+    }
+
     &--tabs {
       row-gap: to-rem(34);
 
@@ -34,6 +38,10 @@
     align-items: center;
     justify-content: center;
     row-gap: to-rem(30);
+
+    @include mobile {
+      row-gap: to-rem(20);
+    }
   }
 
   &__description {
