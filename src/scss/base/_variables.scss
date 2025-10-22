@@ -29,6 +29,8 @@
   --container-width: #{to-rem(1170)};
   --container-padding-x: #{to-rem(375)};
 
+  --border-radius: #{to-rem(50)};
+
   --transition-duration: 0.3s;
 
   @include laptop {

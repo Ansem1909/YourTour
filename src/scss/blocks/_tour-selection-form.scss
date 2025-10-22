@@ -5,7 +5,7 @@
   max-width: to-rem(1170);
   max-height: to-rem(986);
   padding: to-rem(70);
-  border-radius: to-rem(50);
+  border-radius: var(--border-radius);
   background-color: var(--color-white);
   display: grid;
   gap: to-rem(33) to-rem(30);

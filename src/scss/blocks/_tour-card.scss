@@ -8,7 +8,7 @@
   justify-content: space-between;
   width: to-rem(370);
   height: to-rem(531);
-  border-radius: to-rem(50);
+  border-radius: var(--border-radius);
   padding: to-rem(50);
 
   @include tablet {
@@ -36,7 +36,7 @@
     object-fit: cover;
     object-position: center;
     transition: transform 0.5s ease;
-    border-radius: to-rem(50);
+    border-radius: var(--border-radius);
 
     @include mobile {
       border-radius: to-rem(20);
@@ -51,7 +51,7 @@
     width: 100%;
     height: 100%;
     background: var(--gradient-top-to-bottom);
-    border-radius: to-rem(50);
+    border-radius: var(--border-radius);
     z-index: 1;
 
     @include mobile {

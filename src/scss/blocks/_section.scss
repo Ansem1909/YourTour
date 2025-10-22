@@ -2,10 +2,16 @@
 @use "../base" as *;
 
 .section {
-  padding-top: to-rem(135);
+  margin-top: to-rem(135);
 
   @include mobile {
-    padding-top: to-rem(75);
+    margin-top: to-rem(75);
+  }
+
+  &--review {
+    @include mobile {
+      margin-top: to-rem(77);
+    }
   }
 
   &__container {
@@ -18,6 +24,12 @@
     @include mobile {
       row-gap: to-rem(40);
     }
+
+     &--review {
+       @include mobile {
+         row-gap: to-rem(52);
+       }
+     }
 
     &--tabs {
       row-gap: to-rem(34);
@@ -37,6 +49,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     row-gap: to-rem(30);
 
     @include mobile {

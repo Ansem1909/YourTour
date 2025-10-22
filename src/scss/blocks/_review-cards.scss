@@ -1,0 +1,77 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.review-cards {
+  display: flex;
+  gap: to-rem(30);
+
+  @include tablet {
+    gap: to-rem(18);
+  }
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: to-rem(70);
+    border-radius: var(--border-radius);
+    background-color: var(--color-beige200);
+    padding: to-rem(40);
+
+    @include tablet {
+      gap: to-rem(69);
+    }
+
+    @include mobile {
+      gap: to-rem(41);
+      border-radius: to-rem(20);
+      padding: to-rem(20);
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(29);
+    @include p-big;
+
+    @include tablet {
+      gap: to-rem(26);
+    }
+
+    @include mobile {
+      gap: to-rem(25);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      align-items: flex-end;
+      height: to-rem(75);
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(8);
+  }
+
+  &__tour {
+    @include p-small;
+    color: var(--color-gray300);
+  }
+
+  &__image {
+    @include square(to-rem(75));
+    border-radius: to-rem(100);
+  }
+}
