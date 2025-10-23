@@ -14,6 +14,12 @@
     }
   }
 
+  &--gallery {
+    @include mobile {
+      margin-top: to-rem(77);
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -30,6 +36,14 @@
          row-gap: to-rem(52);
        }
      }
+
+    &--gallery {
+      padding-block: 0;
+
+      @include mobile {
+        row-gap: to-rem(51);
+      }
+    }
 
     &--tabs {
       row-gap: to-rem(34);
