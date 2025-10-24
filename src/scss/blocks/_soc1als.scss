@@ -6,6 +6,26 @@
     display: flex;
   }
 
+  &__link {
+    position: relative;
+    @include p-normal;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      transform: scaleX(0);
+      transition: transform var(--transition-duration) ease;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
   &--text & {
     &__list {
       gap: to-rem(35);
@@ -13,33 +33,18 @@
     }
 
     &__link {
-      position: relative;
-      @include p-normal;
       color: var(--color-white);
-      cursor: pointer;
-
-      &:active {
-        color: var(--color-orange200);
-      }
 
       &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
         background-color: var(--color-white);
-        transform: scaleX(0);
-        transition: transform var(--transition-duration) ease;
       }
 
       &:active::after {
         background-color: var(--color-orange200);
       }
 
-      &:hover::after {
-        transform: scaleX(1);
+      &:active {
+        color: var(--color-orange200);
       }
     }
   }
@@ -47,6 +52,66 @@
   &--text {
     @include mobile {
       display: none;
+    }
+  }
+
+  &--icons & {
+    &__list {
+      gap: to-rem(25);
+
+      @include mobile {
+        gap: to-rem(15);
+      }
+    }
+
+    &__link {
+      display: flex;
+      align-items: center;
+      gap: to-rem(10);
+
+      @include mobile {
+        gap: to-rem(5);
+      }
+
+      &::after {
+        background-color: var(--color-black);
+      }
+
+      &:hover {
+        svg {
+          color: var(--color-black);
+        }
+      }
+
+      &:active::after {
+        background-color: var(--color-orange200);
+      }
+
+      &:active {
+        color: var(--color-orange200);
+
+        svg {
+          color: var(--color-orange200);
+        }
+      }
+
+      svg {
+        color: var(--color-gray300);
+      }
+    }
+
+    &__svg-container {
+      width: to-rem(26);
+      height: to-rem(26);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+
+      @include mobile {
+        width: to-rem(23);
+        height: to-rem(23);
+      }
     }
   }
 

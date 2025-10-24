@@ -1,0 +1,31 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.footer {
+  background-color: var(--color-beige200);
+  margin-top: to-rem(135);
+
+  @include mobile {
+    margin-top: to-rem(75);
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: to-rem(30);
+
+    @include mobile {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: to-rem(9);
+      padding-block: to-rem(21);
+    }
+  }
+
+  &__title {
+    @include p-normal;
+    color: var(--color-gray300);
+  }
+}
