@@ -15,7 +15,7 @@
     gap: to-rem(30);
 
     @include tablet {
-      column-gap: to-rem(20);
+      column-gap: var(--indent-mini);
     }
 
     @include tablet {
@@ -65,7 +65,7 @@
     overflow: hidden;
 
     @include mobile {
-      border-radius: to-rem(20);
+      border-radius: var(--border-radius-mini);
     }
 
     img {

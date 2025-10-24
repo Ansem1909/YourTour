@@ -1,0 +1,117 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.stories-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: to-rem(60);
+  color: var(--color-white);
+  width: 100%;
+  height: to-rem(567);
+
+  @include mobile {
+    height: to-rem(455);
+    padding: to-rem(30);
+  }
+
+  &__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    border-radius: var(--border-radius);
+
+    @include mobile {
+      border-radius: var(--border-radius-mini);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-left-to-right);
+    border-radius: var(--border-radius);
+    z-index: 1;
+
+    @include mobile {
+      border-radius: var(--border-radius-mini);
+    }
+  }
+
+  &__content,
+  &__footer {
+    z-index: 10;
+  }
+
+  &__title {
+    color: var(--color-white);
+    margin-bottom: to-rem(37);
+
+    @include mobile {
+      max-width: to-rem(150);
+      margin-bottom: to-rem(20);
+    }
+  }
+
+  &__description {
+    max-width: to-rem(554);
+    @include p-normal;
+  }
+
+  &__list {
+    margin-top: to-rem(26);
+    @include p-normal;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: to-rem(30);
+
+    @include mobile {
+      padding-left: to-rem(24);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: to-rem(13);
+      top: 50%;
+      transform: translateY(-50%);
+      @include square(to-rem(4));
+      background-color: var(--color-white);
+      border-radius: 50%;
+
+      @include mobile {
+        left: to-rem(10);
+      }
+    }
+  }
+
+  &__content {
+    @include mobile {
+      max-width: to-rem(263);
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

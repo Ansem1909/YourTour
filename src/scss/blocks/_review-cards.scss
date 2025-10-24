@@ -29,8 +29,8 @@
 
     @include mobile {
       gap: to-rem(41);
-      border-radius: to-rem(20);
-      padding: to-rem(20);
+      border-radius: var(--border-radius-mini);
+      padding: var(--indent-mini);
     }
   }
 

@@ -14,7 +14,7 @@
   @include tablet {
     max-width: to-rem(918);
     padding: to-rem(60);
-    gap: to-rem(33) to-rem(20);
+    gap: to-rem(33) var(--indent-mini);
   }
 
   @include mobile {
@@ -22,7 +22,7 @@
     grid-template-columns: 1fr;
     max-width: to-rem(318);
     gap: to-rem(30);
-    padding: to-rem(20) to-rem(20) to-rem(40);
+    padding: var(--indent-mini) var(--indent-mini) to-rem(40);
     border-radius: to-rem(30);
   }
 

@@ -9,7 +9,7 @@
   width: to-rem(370);
   height: to-rem(531);
   border-radius: var(--border-radius);
-  padding: to-rem(50);
+  padding: var(--indent-standart);
 
   @include tablet {
     width: to-rem(450);
@@ -63,6 +63,12 @@
   &__button {
     position: relative;
     z-index: 2;
+  }
+
+  &__button {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
   }
 
   &__title {

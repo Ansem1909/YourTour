@@ -5,20 +5,53 @@
   cursor: pointer;
 
   &--white {
-    padding: to-rem(5) to-rem(20);
+    padding: to-rem(5) var(--indent-mini);
     background-color: var(--color-white);
     border-radius: to-rem(10);
     @include p-small;
     color: var(--color-black);
+    transition: all var(--transition-duration) ease;
+
+    &:hover {
+      color: var(--color-white);
+      background-color: var(--color-orange200);
+    }
+
+    &:active {
+      color: var(--color-black);
+      background-color: var(--color-orange100);
+    }
   }
 
   &--arrow {
+    position: relative;
     color: var(--color-white);
     @include p-big;
     display: inline-flex;
     justify-content: left;
+    transition: color var(--transition-duration) ease;
 
-    &:hover{}
+    &::before {
+      content: '';
+      position: absolute;
+      top: to-rem(-7);
+      left: to-rem(-10);
+      right: to-rem(-10);
+      bottom: to-rem(-7);
+      background-color: transparent;
+      border-radius: to-rem(50);
+      transition: background-color var(--transition-duration) ease;
+      z-index: -1;
+
+    }
+
+    &:hover::before {
+      background-color: var(--color-green400);
+    }
+
+    &:active::before {
+      background-color: var(--color-orange200);
+    }
   }
 
   &__form {

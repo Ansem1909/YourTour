@@ -1,0 +1,14 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.stories-cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--indent-standart);
+
+
+  @include mobile {
+    gap: var(--indent-mini);
+  }
+}

@@ -21,7 +21,7 @@
     @include mobile{
       padding-block: to-rem(32);
       padding-left: to-rem(16);
-      padding-right: to-rem(20);
+      padding-right: var(--indent-mini);
     }
   }
 
@@ -29,7 +29,7 @@
     &-list{
       display: flex;
       align-items: center;
-      column-gap: to-rem(50);
+      column-gap: var(--indent-standart);
 
       @include laptop{
         column-gap: to-rem(30);

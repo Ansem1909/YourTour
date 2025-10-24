@@ -19,7 +19,7 @@
     @include p-normal;
     color: var(--color-black);
     background-color: var(--color-beige100);
-    padding: to-rem(20);
+    padding: var(--indent-mini);
     border: 1px solid var(--color-beige200);
     border-radius: to-rem(10);
     transition: color var(--transition-duration) ease;
@@ -250,7 +250,32 @@
   }
 
   &__checkbox-link {
+    position: relative;
     color: var(--color-black);
+
+    &:active {
+      color: var(--color-green400);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-black);
+      transform: scaleX(0);
+      transition: transform var(--transition-duration) ease;
+    }
+
+    &:active::after {
+      background-color: var(--color-green400);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
   }
 
   &__checkbox-input {

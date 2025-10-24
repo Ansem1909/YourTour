@@ -12,7 +12,7 @@
   }
 
   @include mobile {
-    row-gap: to-rem(50);
+    row-gap: var(--indent-standart);
   }
 
   &__buttons {

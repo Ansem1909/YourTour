@@ -1,0 +1,64 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: to-rem(30);
+
+  @include mobile {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__image {
+    @include square(to-rem(370));
+    border-radius: var(--border-radius);
+
+    @include mobile {
+      @include rect(to-rem(130), to-rem(133));
+      border-radius: var(--border-radius-mini);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(20);
+  }
+
+  &__description {
+    @include p-normal;
+    color: var(--color-gray300);
+  }
+
+  &__link {
+    position: relative;
+    color: var(--color-black);
+
+    &:active {
+      color: var(--color-green400);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-black);
+      transform: scaleX(0);
+      transition: transform var(--transition-duration) ease;
+    }
+
+    &:active::after {
+      background-color: var(--color-green400);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}
