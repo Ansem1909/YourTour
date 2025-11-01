@@ -1,0 +1,25 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+
+  &--white-arrow {
+    column-gap: to-rem(15);
+
+    &::after {
+      --width: #{to-rem(24)};
+      --height: #{to-rem(16)};
+
+      @include rect(var(--width), var(--height));
+
+      content: '';
+      flex-shrink: 0;
+      background-image: url(@icons/arrow-right.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+}

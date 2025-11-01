@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+     content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>YourTour - Туристическое агентство | Путешествия по всему миру</title>
+  <meta name="description" content="YourTour - туристическое агентство. Организуем незабываемые путешествия по всему миру. Лучшие цены, индивидуальный подход.">
+  <meta name="keywords" content="туры, путешествия, турагентство, экскурсии, отдых, YourTour">
+</head>
+<body>
+  <header class="header" data-js-header>
+    <div class="header__container container">
+      <a
+        href="/"
+        title="Home"
+        aria-label="Home"
+        class="header__logo logo"
+      >
+        <img
+          alt="Your tour - туристическое агентство"
+          class="logo__image"
+          src="./assets/images/logo.svg"
+          width="182" height="30.5"
+        >
+      </a>
+      <nav class="header__menu">
+        <ul class="header__menu-list">
+          <li class="header__menu-item">
+            <a href="./index.html" class="header__menu-link is-active">Туры</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Создать тур</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Отзывы</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/" class="header__menu-link">Истории</a>
+          </li>
+        </ul>
+      </nav>
+      <a href="tel:+79999999999"
+        class="header__contact-us-link"
+        aria-label="Позвонить по номеру +7 999 999-99-99">
+        +7 999 999 99 99
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero header-and-hero-background" aria-labelledby="hero-title">
+      <div class="hero__container container">
+        <h1 class="hero__title" id="hero-title">Идеальные путешествия существуют</h1>
+        <p class="hero__subtitle">Идейные соображения высшего порядка, а также рамки и место обучения кадров</p>
+        <a href="#tours" class="hero__button button button--white">Найти тур</a>
+      </div>
+    </section>
+
+    <section class="section section--tabs" aria-labelledby="choose-tour-title" id="tours">
+      <div class="section__container section__container--tabs container">
+        <header class="section__header">
+          <h2 class="section__title" id="choose-tour-title">Выбери свой тур</h2>
+        </header>
+        <div class="section__body tabs" data-js-tabs>
+          <header class="tabs__header">
+            <div class="tabs__buttons"
+                 role="tablist"
+                 aria-labelledby="blog-category-title"
+            >
+              <button
+                  class="tabs__button is-active"
+                  type="button"
+                  id="tab-1"
+                  role="tab"
+                  aria-controls="tabpanel-1"
+                  data-js-tabs-button
+                  aria-selected="true"
+              >
+                Популярные
+              </button>
+              <button
+                  class="tabs__button"
+                  type="button"
+                  id="tab-2"
+                  role="tab"
+                  aria-controls="tabpanel-2"
+                  data-js-tabs-button
+                  aria-selected="false"
+                  tabindex="-1"
+              >
+                Авторские
+              </button>
+              <button
+                  class="tabs__button"
+                  type="button"
+                  id="tab-3"
+                  role="tab"
+                  aria-controls="tabpanel-3"
+                  data-js-tabs-button
+                  aria-selected="false"
+                  tabindex="-1"
+              >
+                Походы
+              </button>
+              <button
+                  class="tabs__button"
+                  type="button"
+                  id="tab-4"
+                  role="tab"
+                  aria-controls="tabpanel-4"
+                  data-js-tabs-button
+                  aria-selected="false"
+                  tabindex="-1"
+              >
+                Сплавы
+              </button>
+              <button
+                  class="tabs__button"
+                  type="button"
+                  id="tab-5"
+                  role="tab"
+                  aria-controls="tabpanel-5"
+                  data-js-tabs-button
+                  aria-selected="false"
+                  tabindex="-1"
+              >
+                Велопрогулки
+              </button>
+            </div>
+          </header>
+          <div class="tabs__body">
+            <div class="tabs__content is-active"
+                 id="tabpanel-1"
+                 aria-labelledby="tab-1"
+                 tabindex="0"
+                 data-js-tabs-content
+            >
+              <ul class="cards-grid cards-grid--small">
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-1.jpg"
+                           alt="тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-2.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-3.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-4.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-5.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-6.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="tabs__content"
+                 id="tabpanel-2"
+                 aria-labelledby="tab-2"
+                 tabindex="0"
+                 data-js-tabs-content
+            >
+              <ul class="cards-grid cards-grid--small">
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-1.jpg"
+                           alt="тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие на машине</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-2.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-3.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-4.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-5.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-6.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="tabs__content"
+                 id="tabpanel-3"
+                 aria-labelledby="tab-3"
+                 tabindex="0"
+                 data-js-tabs-content
+            >
+              <ul class="cards-grid cards-grid--small">
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-1.jpg"
+                           alt="тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-2.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-3.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-4.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-5.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-6.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="tabs__content"
+                 id="tabpanel-4"
+                 aria-labelledby="tab-4"
+                 tabindex="0"
+                 data-js-tabs-content
+            >
+              <ul class="cards-grid cards-grid--small">
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-1.jpg"
+                           alt="тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-2.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-3.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-4.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-5.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-6.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+              </ul>
+            </div>
+            <div class="tabs__content"
+                 id="tabpanel-5"
+                 aria-labelledby="tab-5"
+                 tabindex="0"
+                 data-js-tabs-content
+            >
+              <ul class="cards-grid cards-grid--small">
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-1.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-1.jpg"
+                           alt="тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-2.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-2.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-3.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-3.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-4.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-4.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-5.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-5.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+                <li class="cards-grid__item">
+                  <article class="tour-card">
+                    <picture class="tour-card__picture">
+                      <source media="(max-width: 361px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-mobile.jpg">
+                      <source media="(min-width: 361px) and (max-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6-tablet.jpg">
+                      <source media="(min-width: 1025px)"
+                              srcset="./assets/images/tabs-card/card-tour-6.jpg">
+                      <img src="./assets/images/tabs-card/card-tour-6.jpg"
+                           alt="Тур в горы"
+                           class="tour-card__image"
+                           loading="lazy">
+                    </picture>
+                    <div class="tour-card__content">
+                      <h3 class="tour-card__title">Путешествие в горы</h3>
+                      <p class="tour-card__price">от 80 000 руб</p>
+                    </div>
+                    <a href="/" class="tour-card__button button button--arrow">
+                      <span class="icon icon--white-arrow">Подробнее</span>
+                    </a>
+                  </article>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section__container container" aria-labelledby="contacts-form">
+        <header class="section__header">
+          <h2 class="section__title" id="contacts-form">Собери свой тур</h2>
+          <p class="section__description">Идейные соображения высшего порядка,<br>а также рамки и место обучения кадров</p>
+        </header>
+        <div class="section__body">
+          <form action="/" method="post" class="tour-selection-form" novalidate data-js-form>
+            <div class="tour-selection-form__cell field">
+              <label class="field__label" for="firstName">
+                Имя <span class="field__required-star" aria-hidden="true">*</span>
+              </label>
+              <input class="field__control"
+                     id="firstName"
+                     name="firstName"
+                     placeholder="Введите Ваше имя"
+                     minlength="2"
+                     required
+              >
+            </div>
+            <div class="tour-selection-form__cell field field--select">
+              <label class="field__label" for="direction">
+                Направление <span class="field__required-star" aria-hidden="true">*</span>
+              </label>
+              <div class="field__select">
+                <select class=" field__control field__select-control" id="direction" name="direction" required>
+                  <option class="field__select-placeholder" value="" selected disabled>Куда хотите ехать</option>
+                  <option value="Vienna">Вена</option>
+                  <option value="Yalta">Ялта</option>
+                  <option value="Staritsa">Старица</option>
+                </select>
+              </div>
+            </div>
+            <div class="tour-selection-form__cell field">
+              <label class="field__label" for="email">
+                Email <span class="field__required-star" aria-hidden="true">*</span>
+              </label>
+              <input class="field__control"
+                     data-js-form-email
+                     id="email"
+                     name="email"
+                     placeholder="example@mail.com"
+                     required
+                     type="email"
+              >
+            </div>
+            <div class="tour-selection-form__cell field">
+              <label class="field__label" for="phone">Телефон</label>
+              <input class="field__control"
+                     data-js-form-phone
+                     id="phone"
+                     name="phone"
+                     placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _"
+                     type="tel">
+            </div>
+            <div class="tour-selection-form__cell field">
+              <label class="field__label" for="date-from">Дата от</label>
+              <input class="field__control"
+                     type="text"
+                     onfocus="this.type='date'"
+                     onblur="this.type='text'"
+                     data-js-date-from
+                     id="date-from"
+                     name="dateFrom"
+                     placeholder="ДД.ММ.ГГГГ"
+              >
+            </div>
+            <div class="tour-selection-form__cell field">
+              <label class="field__label" for="date-to">Дата до</label>
+              <input class="field__control"
+                     type="text"
+                     onfocus="this.type='date'"
+                     onblur="this.type='text'"
+                     data-js-date-to
+                     id="date-to"
+                     name="dateTo"
+                     placeholder="ДД.ММ.ГГГГ"
+              >
+            </div>
+            <div class="tour-selection-form__cell tour-selection-form__cell--wide field">
+              <label class="field__label" for="message">
+                Комментарий
+              </label>
+              <textarea class="field__control"
+                        id="message"
+                        name="message"
+              ></textarea>
+            </div>
+            <div class="tour-selection-form__cell field">
+              <span class="field__label">Вам есть 18 лет?</span>
+              <div class="field__radios">
+                <label class="field__radio">
+                  <input type="radio" name="isAdult" value="yes" class="field__radio-input">
+                  <span class="field__radio-text">Да</span>
+                </label>
+                <label class="field__radio">
+                  <input type="radio" name="isAdult" value="no" class="field__radio-input">
+                  <span class="field__radio-text">Нет</span>
+                </label>
+              </div>
+            </div>
+            <div class="tour-selection-form__cell tour-selection-form__cell--wide">
+              <div class="tour-selection-form__agreement">
+                <label class="field__checkbox">
+                  <input class="field__checkbox-input"
+                         data-js-form-agreement
+                         type="checkbox"
+                         name="agreement"
+                         required>
+                  <span class="field__checkbox-label">
+                  Нажимая кнопку, я принимаю условия
+                  <a href="/" target="_blank" class="field__checkbox-link">
+                    Лицензионного договора
+                  </a>
+                </span>
+                </label>
+              </div>
+            </div>
+            <div class="tour-selection-form__cell tour-selection-form__cell--wide">
+              <div class="tour-selection-form__buttons">
+                <button class="tour-selection-form__button button button__form button__form--submit"
+                        type="submit"
+                >
+                  Найти тур
+                </button>
+                <button class="tour-selection-form__button button button__form button__form--reset"
+                        type="reset"
+                >
+                  Сбросить
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--review">
+      <div class="section__container section__container--review container" aria-labelledby="reviews">
+        <header class="section__header section__header">
+          <h2 class="section__title" id="reviews">Отзывы наших<br>путешественников</h2>
+          <p class="section__description">Идейные соображения высшего порядка,<br>а также рамки и место обучения кадров</p>
+        </header>
+        <div class="section__body">
+          <ul class="review-cards">
+            <li class="review-cards__card">
+              <blockquote class="review-cards__text">
+                Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Идейные соображения высшего порядка, а также начало повседневной работы по формированию позиции позволяет оценить значение модели развития.
+              </blockquote>
+              <div class="review-cards__footer">
+                <div class="review-cards__author">
+                  <h3 class="review-cards__name">Мария</h3>
+                  <div class="review-cards__tour">Тур: Вдали от дома</div>
+                </div>
+                <img class="review-cards__image"
+                     src="./assets/images/review-section/review-person-1.png"
+                     alt="Мария"
+                     width="75" height="75"
+                     loading="lazy"
+                >
+              </div>
+            </li>
+            <li class="review-cards__card">
+              <blockquote class="review-cards__text">
+                <p>Равным образом постоянный количественный рост и сфера нашей активности играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям.</p>
+                <p>Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании новых предложений. Повседневная практика показывает, что реализация намеченных плановых заданий в значительной степени обуславливает создание модели развития.</p>
+              </blockquote>
+              <div class="review-cards__footer">
+                <div class="review-cards__author">
+                  <h3 class="review-cards__name">Павел</h3>
+                  <div class="review-cards__tour">Тур: Путешествие в горы </div>
+                </div>
+                <img class="review-cards__image"
+                     src="./assets/images/review-section/review-person-2.png"
+                     alt="Мария"
+                     width="75" height="75"
+                     loading="lazy"
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--gallery">
+      <div class="section__container section__container--gallery container-wide" aria-labelledby="gallery">
+        <header class="section__header section__header">
+          <h2 class="section__title" id="gallery">Фотографии путешествий</h2>
+          <p class="section__description">Идейные соображения высшего порядка,<br>а также рамки и место обучения кадров</p>
+        </header>
+        <div class="section__body photo-gallery">
+          <ul class="photo-gallery__row photo-gallery__row--1">
+            <li class="photo-gallery__item photo-gallery__item--1">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-1.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-1.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-1.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--2">
+              <img src="./assets/images/gallery/gallery-desktop-2.jpg"
+                   alt="Фото путешествия"
+                   loading="lazy"
+              >
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--3">
+              <picture>
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-3.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-3.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--4">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-4.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-4.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-4.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+          </ul>
+          <ul class="photo-gallery__row photo-gallery__row--2">
+            <li class="photo-gallery__item photo-gallery__item--5">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-5.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-5.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-5.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--6">
+              <picture>
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-6.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-6.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--7">
+              <img src="./assets/images/gallery/gallery-desktop-7.jpg"
+                   alt="Фото путешествия"
+                   loading="lazy"
+              >
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--8">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-8.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-8.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-8.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--9">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-9.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-9.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-9.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+          </ul>
+          <ul class="photo-gallery__row photo-gallery__row--3">
+            <li class="photo-gallery__item photo-gallery__item--10">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-10.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-10.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-10.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--11">
+              <picture>
+                <source media="(max-width: 360px)"
+                        srcset="./assets/images/gallery/gallery-mobile-11.jpg">
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-11.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-11.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--12">
+              <picture>
+                <source media="(max-width: 1024px)"
+                        srcset="./assets/images/gallery/gallery-tablet-12.jpg">
+                <img src="./assets/images/gallery/gallery-desktop-12.jpg"
+                     alt="Фото путешествия"
+                     loading="lazy">
+              </picture>
+            </li>
+            <li class="photo-gallery__item photo-gallery__item--13">
+              <img src="./assets/images/gallery/gallery-desktop-13.jpg"
+                   alt="Фото путешествия"
+                   loading="lazy">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--stories">
+      <div class="section__container section__container--stories container" aria-labelledby="stories">
+        <header class="section__header section__header">
+          <h2 class="section__title" id="stories">Истории путешествий</h2>
+          <p class="section__description">Идейные соображения высшего порядка,<br>а также рамки и место обучения кадров</p>
+        </header>
+        <div class="section__body">
+          <ul class="stories-cards">
+            <li class="stories-cards__card">
+              <article class="stories-card">
+                <picture class="stories-card__picture">
+                  <source media="(max-width: 360px)"
+                          srcset="./assets/images/stories/story-photo-mobile-1.jpg">
+                  <source media="(min-width: 360px) and (max-width: 1024px)"
+                          srcset="./assets/images/stories/story-photo-tablet-1.jpg">
+                  <source media="(min-width: 1024px)"
+                          srcset="./assets/images/stories/story-photo-desktop-1.jpg">
+                  <img src="./assets/images/stories/story-photo-desktop-1.jpg"
+                       alt=""
+                       class="stories-card__image"
+                       loading="lazy">
+                </picture>
+                <div class="stories-card__content">
+                  <h3 class="stories-card__title">Автостопом в Стамбул</h3>
+                  <p class="stories-card__description">Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании новых предложений:</p>
+                  <ul class="stories-card__list">
+                    <li class="stories-card__item">вкусная еда</li>
+                    <li class="stories-card__item">дешевый транспорт</li>
+                    <li class="stories-card__item">красивый город.</li>
+                  </ul>
+                </div>
+                <div class="stories-card__footer">
+                  <a href="/" class="stories-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                  <div class="soc1als soc1als--text">
+                    <ul class="soc1als__list">
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="telegram"
+                           title="telegram"
+                        >
+                          telegram
+                        </a>
+                      </li>
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="facebook"
+                           title="facebook"
+                        >
+                          facebook
+                        </a>
+                      </li>
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="vkontakte"
+                           title="YouTube"
+                        >
+                          YouTube
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li class="stories-cards__card">
+              <article class="stories-card">
+                <picture class="stories-card__picture">
+                  <source media="(max-width: 360px)"
+                          srcset="./assets/images/stories/story-photo-mobile-2.jpg">
+                  <source media="(min-width: 360px) and (max-width: 1024px)"
+                          srcset="./assets/images/stories/story-photo-tablet-2.jpg">
+                  <source media="(min-width: 1024px)"
+                          srcset="./assets/images/stories/story-photo-desktop-2.jpg">
+                  <img src="./assets/images/stories/story-photo-desktop-2.jpg"
+                       alt=""
+                       class="stories-card__image"
+                       loading="lazy">
+                </picture>
+                <div class="stories-card__content">
+                  <h3 class="stories-card__title">Автостопом в Стамбул</h3>
+                  <p class="stories-card__description">Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании новых предложений.</p>
+                </div>
+                <div class="stories-card__footer">
+                  <a href="/" class="stories-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                  <div class="soc1als soc1als--text">
+                    <ul class="soc1als__list">
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="telegram"
+                           title="telegram"
+                        >
+                          telegram
+                        </a>
+                      </li>
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="facebook"
+                           title="facebook"
+                        >
+                          facebook
+                        </a>
+                      </li>
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="vkontakte"
+                           title="vkontakte"
+                        >
+                          ВКонтакте
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+            <li class="stories-cards__card">
+              <article class="stories-card">
+                <picture class="stories-card__picture">
+                  <source media="(max-width: 360px)"
+                          srcset="./assets/images/stories/story-photo-mobile-3.jpg">
+                  <source media="(min-width: 360px) and (max-width: 1024px)"
+                          srcset="./assets/images/stories/story-photo-tablet-3.jpg">
+                  <source media="(min-width: 1024px)"
+                          srcset="./assets/images/stories/story-photo-desktop-3.jpg">
+                  <img src="./assets/images/stories/story-photo-desktop-3.jpg"
+                       alt=""
+                       class="stories-card__image"
+                       loading="lazy">
+                </picture>
+                <div class="stories-card__content">
+                  <h3 class="stories-card__title">Автостопом в Стамбул</h3>
+                  <p class="stories-card__description">Идейные соображения высшего порядка, а также рамки и место обучения кадров обеспечивает широкому кругу (специалистов) участие в формировании новых предложений.</p>
+                </div>
+                <div class="stories-card__footer">
+                  <a href="/" class="stories-card__button button button--arrow">
+                    <span class="icon icon--white-arrow">Подробнее</span>
+                  </a>
+                  <div class="soc1als soc1als--text">
+                    <ul class="soc1als__list">
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="telegram"
+                           title="telegram"
+                        >
+                          telegram
+                        </a>
+                      </li>
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="facebook"
+                           title="facebook"
+                        >
+                          facebook
+                        </a>
+                      </li>
+                      <li class="soc1als__item">
+                        <a href="/"
+                           class="soc1als__link"
+                           target="_blank"
+                           aria-label="vkontakte"
+                           title="vkontakte"
+                        >
+                          ВКонтакте
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-small">
+        <article class="contacts">
+          <img class="contacts__image"
+               src="./assets/images/contacts/contact-img.jpg"
+               alt=""
+               width="370" height="370"
+               loading="lazy"
+          >
+          <div class="contacts__content">
+            <h3 class="contacts__title">Пора в путешествие<br>вместе с нами!</h3>
+            <p class="contacts__description">
+              Напиши на почту и узнай подробности<br>на
+              <a href="mailto:yourtour@gmail.com" class="contacts__link">
+                yourtour@gmail.com
+              </a>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__container container">
+      <p class="footer__title">Наши социальные сети</p>
+      <div class="soc1als soc1als--icons">
+        <ul class="soc1als__list">
+          <li class="soc1als__item">
+            <a href="/"
+               class="soc1als__link"
+               target="_blank"
+               aria-label="telegram"
+               title="telegram"
+            >
+              <span class="soc1als__svg-container">
+                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.5196 0.00167666C18.2611 0.0137225 18.0177 0.0890085 17.8013 0.173329H17.7983C17.5789 0.260661 16.536 0.700333 14.9521 1.36586C13.3682 2.03441 11.3124 2.9017 9.27173 3.76298C5.1963 5.48251 1.18999 7.17495 1.18999 7.17495L1.23808 7.15688C1.23808 7.15688 0.961578 7.24722 0.673052 7.44598C0.525784 7.54235 0.363487 7.67485 0.22223 7.88264C0.0809728 8.09043 -0.0332358 8.40964 0.00884133 8.73789C0.0779675 9.29501 0.438625 9.62928 0.697096 9.81298C0.958573 9.99969 1.20803 10.087 1.20803 10.087H1.21404L4.97089 11.3548C5.13919 11.8969 6.11597 15.1131 6.3504 15.8539C6.48865 16.2966 6.6239 16.5737 6.79221 16.7845C6.87335 16.8929 6.96953 16.9832 7.08374 17.0555C7.12882 17.0826 7.17691 17.1037 7.225 17.1218C7.24002 17.1308 7.25505 17.1338 7.27308 17.1368L7.23401 17.1278C7.24603 17.1308 7.25505 17.1398 7.26407 17.1428C7.29412 17.1519 7.31516 17.1549 7.35423 17.1609C7.94932 17.3416 8.42719 16.9712 8.42719 16.9712L8.45424 16.9501L10.6723 14.9264L14.3901 17.7843L14.4742 17.8204C15.2496 18.1607 16.0341 17.971 16.4488 17.6367C16.8666 17.2994 17.0289 16.8688 17.0289 16.8688L17.0559 16.7995L19.9292 2.05247C20.0103 1.68809 20.0313 1.34779 19.9412 1.01654C19.851 0.685276 19.6196 0.375096 19.3401 0.209467C19.0576 0.0408253 18.7781 -0.0103691 18.5196 0.00167666ZM18.4414 1.58269C18.4384 1.63087 18.4475 1.62485 18.4264 1.7182V1.72724L15.5802 16.3207C15.5682 16.3418 15.5472 16.387 15.4901 16.4321C15.43 16.4803 15.3819 16.5104 15.1324 16.4111L10.5851 12.9178L7.83811 15.4263L8.41516 11.7343C8.41516 11.7343 15.5382 5.08199 15.8447 4.7959C16.1513 4.50982 16.0491 4.44959 16.0491 4.44959C16.0701 4.10026 15.5862 4.3472 15.5862 4.3472L6.21816 10.1623L6.21515 10.1473L1.72497 8.63249V8.62948C1.72196 8.62948 1.71595 8.62647 1.71295 8.62647C1.71595 8.62647 1.73699 8.61743 1.73699 8.61743L1.76104 8.60539L1.78508 8.59635C1.78508 8.59635 5.79439 6.90392 9.86982 5.18438C11.9105 4.32311 13.9663 3.45581 15.5472 2.78727C17.128 2.12174 18.2972 1.63388 18.3633 1.60678C18.4264 1.58269 18.3964 1.58269 18.4414 1.58269Z" fill="#A6A6A6"/>
+              </svg>
+              </span>
+              telegram
+            </a>
+          </li>
+          <li class="soc1als__item">
+            <a href="/"
+               class="soc1als__link"
+               target="_blank"
+               aria-label="facebook"
+               title="facebook"
+            >
+              <span class="soc1als__svg-container">
+                <svg width="8" height="17" viewBox="0 0 8 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.98809 0H5.27107C3.6587 0 1.86529 0.678114 1.86529 3.01522C1.87316 3.82956 1.86529 4.60945 1.86529 5.48717H0V8.45529H1.92302V17H5.45665V8.39891H7.78897L8 5.47885H5.39576C5.39576 5.47885 5.40159 4.17988 5.39576 3.80265C5.39576 2.87908 6.35681 2.93197 6.41462 2.93197C6.87195 2.93197 7.76115 2.9333 7.98942 2.93197V0H7.98809Z" fill="#A6A6A6"/>
+              </svg>
+              </span>
+              facebook
+            </a>
+          </li>
+          <li class="soc1als__item">
+            <a href="/"
+               class="soc1als__link"
+               target="_blank"
+               aria-label="vkontakte"
+               title="vkontakte"
+            >
+              <span class="soc1als__svg-container">
+                <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5395 0.805263C19.6802 0.331579 19.5395 0 18.883 0H16.6946C16.1318 0 15.8817 0.3 15.741 0.631579C15.741 0.631579 14.6312 3.37895 13.0524 5.14737C12.5366 5.66842 12.3177 5.82632 12.0363 5.82632C11.8957 5.82632 11.6924 5.66842 11.6924 5.19474V0.805263C11.6924 0.236842 11.5361 0 11.0672 0H7.62823C7.28433 0 7.06549 0.268421 7.06549 0.505263C7.06549 1.0421 7.84707 1.16842 7.94086 2.65263V5.90526C7.94086 6.61579 7.81581 6.7421 7.53444 6.7421C6.79975 6.7421 4.98648 3.99474 3.92353 0.836843C3.70469 0.252632 3.50148 0 2.93874 0H0.750317C0.125053 0 0 0.3 0 0.631579C0 1.21579 0.734686 4.12105 3.45459 7.95789C5.26785 10.5789 7.81581 12 10.1293 12C11.5205 12 11.6924 11.6842 11.6924 11.1474V9.15789C11.6924 8.52632 11.8175 8.4 12.2708 8.4C12.5991 8.4 13.1462 8.55789 14.4436 9.82105C15.9286 11.3211 16.1787 12 17.0072 12H19.1956C19.8209 12 20.1335 11.6842 19.9459 11.0684C19.7427 10.4526 19.0393 9.55263 18.1014 8.47895C17.5856 7.86316 16.8196 7.21579 16.6008 6.88421C16.2725 6.45789 16.3663 6.26842 16.6008 5.90526C16.6008 5.88947 19.2738 2.1 19.5395 0.805263Z" fill="#A6A6A6"/>
+              </svg>
+              </span>
+              vkontakte
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

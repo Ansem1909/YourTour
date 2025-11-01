@@ -1,0 +1,58 @@
+@use './functions' as *;
+
+$desktop: 1920;
+$laptop: 1500.98;
+$tablet: 1024.98;
+$mobile: 360.98;
+
+@mixin laptop-above {
+  @media (width > to-rem($laptop)){
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (width <= to-rem($laptop)){
+    @content;
+  }
+}
+
+@mixin tablet-above {
+  @media (width > to-rem($tablet)){
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (width <= to-rem($tablet)){
+    @content;
+  }
+}
+
+@mixin mobile-above {
+  @media (width > to-rem($mobile)){
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (width <= to-rem($mobile)){
+    @content;
+  }
+}
+
+@mixin hover($hasActiveEffectOnMobile: true) {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+
+  @if($hasActiveEffectOnMobile){
+    @media (any-hover: none) {
+      &:active {
+        @content;
+      }
+    }
+  }
+}

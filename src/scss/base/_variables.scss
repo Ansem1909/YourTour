@@ -1,0 +1,54 @@
+@use '../helpers' as *;
+
+:root {
+  --color-black: #1B1F2B;
+  --color-white: #FFFFFF;
+
+  --color-orange200: #EFA501;
+  --color-orange100: #F8E6BE;
+
+  --color-green400: #286562;
+  --color-green300: #3B7E7B;
+  --color-green200: #627F7E;
+  --color-green100: #E0F0E5;
+
+  --color-gray300: #A6A6A6;
+  --color-gray200: #D9DFDB;
+  --color-gray100: #F1F3F2;
+
+  --color-beige200: #F4F0E9;
+  --color-beige100: #F9F7F4;
+
+  --color-header: rgba(243, 239, 232, 0.6);
+
+  --gradient-left-to-right: linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%);
+  --gradient-top-to-bottom: linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%);
+
+  --font-family-base: 'Roboto', sans-serif;
+
+  --container-width: #{to-rem(1170)};
+  --container-padding-x: #{to-rem(375)};
+
+  --border-radius: #{to-rem(50)};
+  --border-radius-mini: #{to-rem(20)};
+
+  --indent-standart: #{to-rem(50)};
+  --indent-mini: #{to-rem(20)};
+
+  --transition-duration: 0.3s;
+
+  @include laptop {
+    --container-width: #{to-rem(918)};
+    --container-padding-x: #{to-rem(53)};
+  }
+
+  @include tablet {
+    --container-width: #{to-rem(918)};
+    --container-padding-x: #{to-rem(53)};
+  }
+
+  @include mobile {
+    --container-width: #{to-rem(318)};
+    --container-padding-x: #{to-rem(21)};
+  }
+}

@@ -1,0 +1,24 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.cards-grid {
+  display: grid;
+  gap: to-rem(30);
+
+  @include tablet {
+    gap: to-rem(18);
+  }
+
+  &--small {
+    grid-template-columns: repeat(3, 1fr);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+}

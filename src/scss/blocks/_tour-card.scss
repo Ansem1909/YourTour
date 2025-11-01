@@ -1,0 +1,92 @@
+@use "../helpers" as *;
+@use "../base" as *;
+
+.tour-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: to-rem(370);
+  height: to-rem(531);
+  border-radius: var(--border-radius);
+  padding: var(--indent-standart);
+
+  @include tablet {
+    width: to-rem(450);
+  }
+
+  @include mobile {
+    @include square(to-rem(318));
+    border-radius: to-rem(20);
+    padding: to-rem(25.5);
+  }
+
+  &__picture {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+    border-radius: var(--border-radius);
+
+    @include mobile {
+      border-radius: to-rem(20);
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-top-to-bottom);
+    border-radius: var(--border-radius);
+    z-index: 1;
+
+    @include mobile {
+      border-radius: to-rem(20);
+    }
+  }
+
+  &__content,
+  &__button {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__button {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+  }
+
+  &__title {
+    max-width: to-rem(224);
+    color: var(--color-white);
+    margin-bottom: to-rem(17);
+
+    @include tablet {
+      max-width: to-rem(370);
+    }
+
+    @include mobile {
+      margin-bottom: to-rem(12);
+    }
+  }
+
+  &__price {
+    @include p-small;
+    color: var(--color-white);
+  }
+}
