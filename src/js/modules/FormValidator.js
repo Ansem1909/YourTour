@@ -11,7 +11,8 @@ class FormValidator {
   }
 
   constructor(rootElement) {
-    this.form = rootElement;
+    this.form = rootElement || document.querySelector(this.selectors.root);
+
     if (!this.form) {
       console.warn('Form элемент не найден');
       return;
@@ -173,12 +174,5 @@ class FormValidator {
     }, 0);
   }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  const formElement = document.querySelector(rootSelector);
-  if (formElement) {
-    new FormValidator(formElement);
-  }
-});
 
 export default FormValidator;
