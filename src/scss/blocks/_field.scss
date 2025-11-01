@@ -119,6 +119,13 @@
     align-items: center;
     gap: to-rem(12);
     cursor: pointer;
+
+    &:focus-within:focus-visible {
+      .field__radio-text::before {
+        outline: 2px dashed var(--color-orange200);
+        outline-offset: 2px;
+      }
+    }
   }
 
   &__radio-input {
@@ -133,6 +140,11 @@
 
     &:checked + .field__radio-text::after {
       transform: translateY(-50%) scale(1);
+    }
+
+    &:focus-visible + .field__radio-text::before {
+      outline: 2px dashed var(--color-orange200);
+      outline-offset: 2px;
     }
   }
 
@@ -189,6 +201,13 @@
 
     @include mobile {
       gap: to-rem(8);
+    }
+
+    &:focus-within:focus-visible {
+      .field__checkbox-label::before {
+        outline: 2px dashed var(--color-orange200);
+        outline-offset: 2px;
+      }
     }
   }
 
@@ -276,6 +295,12 @@
     &:hover::after {
       transform: scaleX(1);
     }
+
+    &:focus-visible {
+      outline: 2px dashed var(--color-orange200);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
   }
 
   &__checkbox-input {
@@ -283,6 +308,11 @@
     opacity: 0;
     width: 0;
     height: 0;
+
+    &:focus-visible + .field__checkbox-label::before {
+      outline: 2px dashed var(--color-orange200);
+      outline-offset: 2px;
+    }
   }
 
   &__checkbox-input:checked + .field__checkbox-label::after {

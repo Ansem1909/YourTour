@@ -1,5 +1,10 @@
 @use "../helpers" as *;
 
+*:focus-visible{
+  outline: 2px dashed var(--color-orange200);
+  outline-offset: 2px;
+}
+
 html {
   &.is-lock {
     overflow: hidden;

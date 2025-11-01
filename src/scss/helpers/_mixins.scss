@@ -6,15 +6,7 @@
   font-size:fluid($max, $min);
 }
 
-@mixin hide {
-  opacity: 0;
-  visibility: hidden;
-}
 
-@mixin show {
-  opacity: 1;
-  visibility: visible;
-}
 
 @mixin flex-center($isInline: false) {
   @if $isInline {
