@@ -26,8 +26,27 @@
 
   --font-family-base: 'Roboto', sans-serif;
 
-  --container-width: #{to-rem(1170)};
-  --container-padding-x: #{to-rem(375)};
+  //--container-width: #{to-rem(1170)};
+  //--container-padding-x: #{to-rem(375)};
+  --container-width: #{fluid(1170, 1000)};
+  --container-padding-x: #{fluid(375, 100)};
+
+  @include laptop {
+    --container-width: #{fluid(1000, 918)};
+    --container-padding-x: #{fluid(100, 53)};
+  }
+
+  @include tablet {
+    //--container-width: #{to-rem(918)};
+    //--container-padding-x: #{to-rem(53)};
+    --container-width: #{fluid(918, 318)};
+    --container-padding-x: #{fluid(53, 21)};
+  }
+
+  @include mobile {
+    --container-width: #{to-rem(318)};
+    --container-padding-x: #{to-rem(21)};
+  }
 
   --border-radius: #{to-rem(50)};
   --border-radius-mini: #{to-rem(20)};
@@ -36,19 +55,4 @@
   --indent-mini: #{to-rem(20)};
 
   --transition-duration: 0.3s;
-
-  @include laptop {
-    --container-width: #{to-rem(918)};
-    --container-padding-x: #{to-rem(53)};
-  }
-
-  @include tablet {
-    --container-width: #{to-rem(918)};
-    --container-padding-x: #{to-rem(53)};
-  }
-
-  @include mobile {
-    --container-width: #{to-rem(318)};
-    --container-padding-x: #{to-rem(21)};
-  }
 }

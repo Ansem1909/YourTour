@@ -15,7 +15,7 @@
     column-gap: 1rem;
 
     @include tablet{
-      padding-inline: to-rem(57);
+      padding-inline: fluid(57,16);
     }
 
     @include mobile{
@@ -31,7 +31,7 @@
       align-items: center;
       column-gap: var(--indent-standart);
 
-      @include laptop{
+      @include laptop {
         column-gap: to-rem(30);
       }
     }
@@ -41,6 +41,7 @@
       @include p-normal;
       color: var(--color-white);
       cursor: pointer;
+      white-space: nowrap;
 
       &::after {
         content: '';
@@ -68,6 +69,7 @@
     @include p-normal;
     position: relative;
     color: var(--color-white);
+    white-space: nowrap;
 
     &::after {
       content: '';
