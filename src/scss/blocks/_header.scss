@@ -60,9 +60,18 @@
       }
     }
 
+    @include mobile-above {
+      display: none;
+    }
+
     @include mobile {
       display: none;
     }
+
+    @include tablet-above {
+      display: block;
+    }
+
   }
 
   &__contact-us-link{

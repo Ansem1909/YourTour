@@ -18,7 +18,15 @@
 
     @include tablet {
       background-image: url("../assets/images/header-and-hero-bg-for-tablet.jpg");
-      height: to-rem(831);
+      max-height: fluid(831, 828);
+    }
+
+    @include tablet-s {
+      max-height: fluid(500, 460);
+    }
+
+    @include mobile-b {
+      max-height: fluid(480, 513);
     }
 
     @include mobile {

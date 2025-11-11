@@ -3,7 +3,8 @@
 $desktop: 1920;
 $laptop: 1400.98;
 $tablet: 1023.98;
-$mobile-b: 767.98;
+$tablet-s: 767.98;
+$mobile-b: 479.98;
 $mobile: 360.98;
 
 @mixin laptop-above {
@@ -30,7 +31,19 @@ $mobile: 360.98;
   }
 }
 
-@mixin mobile-b--above {
+@mixin tablet-s-above {
+  @media (width > to-rem($tablet-s)){
+    @content;
+  }
+}
+
+@mixin tablet-s {
+  @media (width <= to-rem($tablet-s)){
+    @content;
+  }
+}
+
+@mixin mobile-b-above {
   @media (width > to-rem($mobile-b)){
     @content;
   }

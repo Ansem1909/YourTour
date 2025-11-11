@@ -8,12 +8,7 @@
     margin-top: to-rem(75);
   }
 
-  &--review {
-    @include mobile {
-      margin-top: to-rem(77);
-    }
-  }
-
+  &--review,
   &--gallery {
     @include mobile {
       margin-top: to-rem(77);

@@ -26,10 +26,10 @@
 
   --font-family-base: 'Roboto', sans-serif;
 
-  //--container-width: #{to-rem(1170)};
-  //--container-padding-x: #{to-rem(375)};
-  --container-width: #{fluid(1170, 1000)};
-  --container-padding-x: #{fluid(375, 100)};
+  --container-width: #{to-rem(1170)};
+  --container-padding-x: #{to-rem(375)};
+  //--container-width: #{fluid(1170, 1000)};
+  //--container-padding-x: #{fluid(375, 100)};
 
   @include laptop {
     --container-width: #{fluid(1000, 918)};
@@ -39,8 +39,18 @@
   @include tablet {
     //--container-width: #{to-rem(918)};
     //--container-padding-x: #{to-rem(53)};
-    --container-width: #{fluid(918, 318)};
-    --container-padding-x: #{fluid(53, 21)};
+    --container-width: #{fluid(918, 718)};
+    --container-padding-x: #{fluid(53, 43)};
+  }
+
+  @include tablet-s {
+    --container-width: #{fluid(718, 518)};
+    --container-padding-x: #{fluid(43, 33)};
+  }
+
+  @include mobile-b {
+    --container-width: #{fluid(518, 318)};
+    --container-padding-x: #{fluid(33, 21)};
   }
 
   @include mobile {

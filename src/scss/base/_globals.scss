@@ -9,6 +9,13 @@ html {
   &.is-lock {
     overflow: hidden;
   }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {

@@ -80,7 +80,7 @@
     $font-weight: 700
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 34px;
     line-height: 112%;
     letter-spacing:0.68px;
@@ -96,7 +96,7 @@
   $font-weight: 700
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 34px;
     line-height: 112%;
     letter-spacing: 0.68px;
@@ -112,7 +112,7 @@
     $font-weight: 500
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 23px;
     line-height: 120%;
     letter-spacing: 0.92px;
@@ -129,7 +129,7 @@
     $font-weight: 700
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 16px;
     line-height: 142%;
   }
@@ -144,7 +144,7 @@
     $font-weight: 400
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 16px;
     line-height: 142%;
   }
@@ -159,7 +159,7 @@
     $font-weight: 400
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 16px;
     line-height: 142%;
     letter-spacing: -0.16px,
