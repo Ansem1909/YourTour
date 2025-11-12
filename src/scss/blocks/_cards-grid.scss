@@ -3,22 +3,27 @@
 
 .cards-grid {
   display: grid;
+  //grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(#{to-rem(310)}, 1fr));
   gap: to-rem(30);
 
   @include tablet {
+    //grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(#{to-rem(325)}, 1fr));
     gap: to-rem(18);
   }
 
-  &--small {
-    grid-template-columns: repeat(3, 1fr);
-
-    @include tablet {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @include mobile {
-      grid-template-columns: repeat(1, 1fr);
-    }
+  @include mobile-b {
+    grid-template-columns: repeat(1, 1fr);
   }
+
+  & > * {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+
 
 }

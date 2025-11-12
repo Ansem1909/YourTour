@@ -2,10 +2,10 @@
 
 $desktop: 1920;
 $laptop: 1400.98;
-$tablet: 1023.98;
-$tablet-s: 767.98;
-$mobile-b: 479.98;
-$mobile: 360.98;
+$tablet: 1023.99;
+$tablet-s: 767.99;
+$mobile-b: 479.99;
+$mobile: 360.99;
 
 @mixin laptop-above {
   @media (width > to-rem($laptop)){

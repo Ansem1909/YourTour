@@ -11,6 +11,10 @@
     gap: to-rem(104);
   }
 
+  @include tablet-s {
+    gap: fluid(104, 50);
+  }
+
   @include mobile {
     row-gap: var(--indent-standart);
   }
@@ -20,10 +24,10 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    gap: to-rem(30);
 
     @include mobile {
       gap: to-rem(10);
-
     }
   }
 
@@ -71,14 +75,6 @@
 
       @include mobile {
         bottom: 0;
-      }
-    }
-
-    &:not(:last-child) {
-      margin-right: to-rem(30);
-
-      @include mobile {
-        margin: 0;
       }
     }
   }

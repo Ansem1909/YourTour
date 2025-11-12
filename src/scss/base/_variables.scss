@@ -26,10 +26,17 @@
 
   --font-family-base: 'Roboto', sans-serif;
 
-  --container-width: #{to-rem(1170)};
-  --container-padding-x: #{to-rem(375)};
-  //--container-width: #{fluid(1170, 1000)};
-  //--container-padding-x: #{fluid(375, 100)};
+  //--container-width: #{to-rem(1170)};
+  //--container-padding-x: #{to-rem(375)};
+
+  //@include tablet {
+    //--container-width: #{to-rem(918)};
+    //--container-padding-x: #{to-rem(53)};
+  //  --container-width: #{fluid(918, 718)};
+  //  --container-padding-x: #{fluid(53, 43)};
+  //}
+  --container-width: #{fluid(1170, 1000)};
+  --container-padding-x: #{fluid(375, 100)};
 
   @include laptop {
     --container-width: #{fluid(1000, 918)};
@@ -37,9 +44,7 @@
   }
 
   @include tablet {
-    //--container-width: #{to-rem(918)};
-    //--container-padding-x: #{to-rem(53)};
-    --container-width: #{fluid(918, 718)};
+    --container-width: #{fluid(918, 518)};
     --container-padding-x: #{fluid(53, 43)};
   }
 
@@ -56,6 +61,16 @@
   @include mobile {
     --container-width: #{to-rem(318)};
     --container-padding-x: #{to-rem(21)};
+  }
+
+  @media (width: #{to-rem(1920)}) {
+    --container-width: #{to-rem(1170)};
+    --container-padding-x: #{to-rem(375)};
+  }
+
+  @media (width: #{to-rem(1024)}) {
+    --container-width: #{to-rem(918)};
+    --container-padding-x: #{to-rem(53)};
   }
 
   --border-radius: #{to-rem(50)};
