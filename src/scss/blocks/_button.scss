@@ -60,8 +60,20 @@
     border-radius: to-rem(10);
     @include p-normal;
 
+    @include tablet-s {
+      padding: to-rem(12) to-rem(40.5);
+    }
+
+    @include mobile-b {
+      padding: to-rem(12) fluid(35.5, 30.5);
+    }
+
     @include mobile {
       padding: to-rem(12) to-rem(30.5);
+    }
+
+    @include mobile-s {
+      padding: to-rem(12) to-rem(20.5);
     }
 
     &--submit {

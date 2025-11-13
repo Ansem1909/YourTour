@@ -6,6 +6,7 @@ $tablet: 1023.99;
 $tablet-s: 767.99;
 $mobile-b: 479.99;
 $mobile: 360.99;
+$mobile-s: 320.99;
 
 @mixin laptop-above {
   @media (width > to-rem($laptop)){
@@ -63,6 +64,18 @@ $mobile: 360.99;
 
 @mixin mobile {
   @media (width <= to-rem($mobile)){
+    @content;
+  }
+}
+
+@mixin mobile-s-above {
+  @media (width > to-rem($mobile-s)){
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (width <= to-rem($mobile-s)){
     @content;
   }
 }

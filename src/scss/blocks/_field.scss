@@ -6,7 +6,7 @@
   flex-direction: column;
   row-gap: to-rem(6);
 
-  @include mobile {
+  @include mobile-b {
     row-gap: to-rem(8);
   }
 
@@ -16,6 +16,7 @@
   }
 
   &__control {
+    width: 100%;
     @include p-normal;
     color: var(--color-black);
     background-color: var(--color-beige100);
@@ -23,8 +24,15 @@
     border: 1px solid var(--color-beige200);
     border-radius: to-rem(10);
     transition: color var(--transition-duration) ease;
+    //max-width: 100%;
 
-    @include mobile {
+
+
+    //@include mobile {
+    //  padding: to-rem(9.8);
+    //}
+
+    @include tablet-s {
       padding: to-rem(9.8);
     }
 
@@ -43,6 +51,7 @@
     }
 
     &:is(textarea) {
+      width: 100%;
       resize: none;
       height: to-rem(153);
       overflow-y: auto;
@@ -55,6 +64,8 @@
 
   &__select {
     position: relative;
+    width: 100%;
+
 
     &::after {
       content: "";
@@ -76,16 +87,19 @@
   }
 
   &__select-control {
-    min-width: to-rem(500);
     appearance: none;
-
-    @include tablet {
-      min-width: to-rem(389);
-    }
-
-    @include mobile {
-      min-width: to-rem(278);
-    }
+    width: 100%;
+    position: relative;
+    //min-width: to-rem(500);
+    //
+    //
+    //@include tablet {
+    //  min-width: to-rem(389);
+    //}
+    //
+    //@include mobile {
+    //  min-width: to-rem(278);
+    //}
 
     &:invalid,
     &[value=""] {
