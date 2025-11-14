@@ -4,8 +4,8 @@
 .contacts {
   display: flex;
   align-items: center;
-  justify-content: center;
-  column-gap: to-rem(30);
+  justify-content: left;
+  gap: to-rem(30);
   #min-width: to-rem(771);
 
   @include tablet-s {

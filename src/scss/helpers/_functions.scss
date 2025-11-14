@@ -26,3 +26,19 @@
           #{$maxSize * 1rem}
   );
 }
+
+@function fluidWithVw ($min, $max, $min-vw: 360, $max-vw: 1920) {
+  $minSize: math.div($min, 16);
+  $maxSize: math.div($max, 16);
+  $minWidth: math.div($min-vw, 16);
+  $maxWidth: math.div($max-vw, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  @return clamp(
+          #{$minSize * 1rem},
+          #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+          #{$maxSize * 1rem}
+  );
+}

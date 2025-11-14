@@ -28,8 +28,8 @@
 .container-small {
   //--container-width: #{to-rem(771)};
   //--container-padding-x: #{to-rem(574.5)};
-  --container-width: #{fluid(771, 771)};
-  --container-padding-x: #{fluid(574.5, 126.5)};
+  --container-width: #{to-rem(771)};
+  --container-padding-x: #{fluidWithVw(126.5, 574.5, 1024, 1920)};
 
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
@@ -39,8 +39,8 @@
   @include tablet {
     //--container-width: #{to-rem(771)};
     //--container-padding-x: #{to-rem(126.5)};
-    --container-width: #{fluid(771, 291)};
-    --container-padding-x: #{fluid(126.5, 34.5)};
+    --container-width: #{fluidWithVw(291, 771, 360, 1024)};
+    --container-padding-x: #{fluidWithVw(34.5, 126.5, 360, 1024)};
   }
 
   @include mobile {
