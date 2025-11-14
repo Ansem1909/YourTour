@@ -50,7 +50,7 @@
   }
 
   &--text {
-    @include mobile {
+    @include tablet-s {
       display: none;
     }
   }
@@ -59,7 +59,7 @@
     &__list {
       gap: to-rem(25);
 
-      @include mobile {
+      @include mobile-b {
         gap: to-rem(15);
       }
     }
@@ -69,7 +69,7 @@
       align-items: center;
       gap: to-rem(10);
 
-      @include mobile {
+      @include mobile-b {
         gap: to-rem(5);
       }
 
@@ -108,7 +108,7 @@
       align-items: center;
       flex-shrink: 0;
 
-      @include mobile {
+      @include mobile-b {
         width: to-rem(23);
         height: to-rem(23);
       }

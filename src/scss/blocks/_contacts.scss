@@ -4,19 +4,22 @@
 .contacts {
   display: flex;
   align-items: center;
-  gap: to-rem(30);
+  justify-content: center;
+  column-gap: to-rem(30);
+  #min-width: to-rem(771);
 
-  @include mobile {
+  @include tablet-s {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    min-width: to-rem(291);
   }
 
   &__image {
     @include square(to-rem(370));
     border-radius: var(--border-radius);
 
-    @include mobile {
+    @include tablet-s {
       @include rect(to-rem(130), to-rem(133));
       border-radius: var(--border-radius-mini);
     }

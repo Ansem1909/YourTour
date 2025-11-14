@@ -15,7 +15,7 @@
     align-items: center;
     padding-block: to-rem(30);
 
-    @include mobile {
+    @include tablet-s {
       flex-direction: column;
       justify-content: center;
       align-items: center;
