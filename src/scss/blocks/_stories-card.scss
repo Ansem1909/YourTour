@@ -10,6 +10,8 @@
   color: var(--color-white);
   width: 100%;
   height: to-rem(567);
+  @include photo-scale-hover;
+
 
   @include mobile-b {
     height: to-rem(455);

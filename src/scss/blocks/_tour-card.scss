@@ -11,10 +11,11 @@
   height: to-rem(531);
   border-radius: var(--border-radius);
   padding: var(--indent-standart);
+  @include photo-scale-hover;
+
 
   @include tablet {
     //max-width: to-rem(450);
-
   }
 
   @include mobile-b {

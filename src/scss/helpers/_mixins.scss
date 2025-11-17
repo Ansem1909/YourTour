@@ -39,14 +39,15 @@
 @mixin photo-scale-hover {
   transition: transform 300ms ease;
   transform-origin: center;
+  z-index: 100;
 
   @include hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   @media (any-hover: none) {
     &:active {
-      transform: scale(1.2);
+      transform: scale(1.1);
       transition-duration: 150ms;
     }
 
