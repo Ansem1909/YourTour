@@ -8,8 +8,7 @@
     margin-top: to-rem(75);
   }
 
-  &--review,
-  &--gallery {
+  &--review {
     @include mobile-b  {
       margin-top: to-rem(77);
     }
@@ -41,18 +40,15 @@
       row-gap: to-rem(40);
     }
 
-     &--review {
+     &--review,
+     &--gallery {
        @include mobile-b  {
-         row-gap: to-rem(52);
+         row-gap: to-rem(50);
        }
      }
 
     &--gallery {
       padding-block: 0;
-
-      @include mobile-b {
-        row-gap: to-rem(51);
-      }
     }
 
     &--tabs {
