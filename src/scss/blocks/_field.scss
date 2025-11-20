@@ -46,10 +46,6 @@
       cursor: pointer;
     }
 
-    &:focus {
-      border: 1px solid var(--color-gray300);
-    }
-
     &:is(textarea) {
       width: 100%;
       resize: none;
@@ -134,9 +130,9 @@
     gap: to-rem(12);
     cursor: pointer;
 
-    &:focus-within:focus-visible {
+    &:focus {
       .field__radio-text::before {
-        outline: 2px dashed var(--color-orange200);
+        outline: 1px solid var(--color-gray300);
         outline-offset: 2px;
       }
     }
@@ -157,7 +153,7 @@
     }
 
     &:focus-visible + .field__radio-text::before {
-      outline: 2px dashed var(--color-orange200);
+      outline: 1px solid var(--color-gray300);;
       outline-offset: 2px;
     }
   }
@@ -217,9 +213,9 @@
       gap: to-rem(8);
     }
 
-    &:focus-within:focus-visible {
+    &:focus-within {
       .field__checkbox-label::before {
-        outline: 2px dashed var(--color-orange200);
+        outline: 1px solid var(--color-gray300);
         outline-offset: 2px;
       }
     }
@@ -309,12 +305,6 @@
     &:hover::after {
       transform: scaleX(1);
     }
-
-    &:focus-visible {
-      outline: 2px dashed var(--color-orange200);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
   }
 
   &__checkbox-input {
@@ -324,7 +314,7 @@
     height: 0;
 
     &:focus-visible + .field__checkbox-label::before {
-      outline: 2px dashed var(--color-orange200);
+      outline: 1px solid var(--color-gray300);
       outline-offset: 2px;
     }
   }
