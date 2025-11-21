@@ -886,6 +886,7 @@
               </label>
               <input class="field__control"
                      id="firstName"
+                     data-js-form-name
                      name="firstName"
                      placeholder="Введите Ваше имя"
                      minlength="2"
@@ -894,10 +895,10 @@
             </div>
             <div class="tour-selection-form__cell field field--select">
               <label class="field__label" for="direction">
-                Направление <span class="field__required-star" aria-hidden="true">*</span>
+                Направление
               </label>
               <div class="field__select">
-                <select class="tour-selection-form__cell field__control field__select-control" id="direction" name="direction" required>
+                <select class="tour-selection-form__cell field__control field__select-control" id="direction" name="direction">
                   <option class="field__select-placeholder" value="" selected disabled>Куда хотите ехать</option>
                   <option value="Vienna">Вена</option>
                   <option value="Yalta">Ялта</option>
@@ -930,7 +931,7 @@
             <div class="tour-selection-form__cell field">
               <label class="field__label" for="date-from">Дата от</label>
               <input class="field__control"
-                     type="date"
+                     type="text"
                      data-js-date-from
                      id="date-from"
                      name="dateFrom"
@@ -940,7 +941,7 @@
             <div class="tour-selection-form__cell field">
               <label class="field__label" for="date-to">Дата до</label>
               <input class="field__control"
-                     type="date"
+                     type="text"
                      data-js-date-to
                      id="date-to"
                      name="dateTo"
