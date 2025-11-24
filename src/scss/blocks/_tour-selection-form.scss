@@ -55,8 +55,8 @@
   &__buttons {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: to-rem(30);
+    //justify-content: center;
+    gap: to-rem(33);
 
     @include tablet {
       gap: to-rem(33);

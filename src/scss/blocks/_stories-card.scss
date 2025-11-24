@@ -7,15 +7,20 @@
   flex-direction: column;
   justify-content: space-between;
   padding: to-rem(60);
+  padding-bottom: to-rem(58);
   color: var(--color-white);
   width: 100%;
   height: to-rem(567);
   @include photo-scale-hover;
 
+  @include tablet {
+    padding-bottom: to-rem(60);
+  }
 
   @include mobile-b {
     height: to-rem(455);
     padding: to-rem(30);
+    padding-bottom: to-rem(33);
   }
 
   &__picture {

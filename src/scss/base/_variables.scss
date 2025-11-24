@@ -52,12 +52,7 @@
 
   @include tablet-s {
     --container-width: #{fluid(718, 518)};
-    --container-padding-x: #{fluid(43, 33)};
-  }
-
-  @include mobile-b {
-    --container-width: #{fluid(518, 318)};
-    --container-padding-x: #{fluid(33, 21)};
+    --container-padding-x: #{fluid(43, 21)};
   }
 
   @include mobile {

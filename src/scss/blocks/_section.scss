@@ -4,6 +4,10 @@
 .section {
   margin-top: to-rem(135);
 
+  &--gallery {
+    margin-top: to-rem(133);
+  }
+
   @include mobile-b {
     margin-top: to-rem(75);
   }
@@ -22,7 +26,6 @@
     @include mobile-b  {
       margin-top: to-rem(75);
     }
-
   }
 
   &__body {

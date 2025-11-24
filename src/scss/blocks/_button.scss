@@ -34,10 +34,10 @@
     &::before {
       content: '';
       position: absolute;
-      top: to-rem(-7);
-      left: to-rem(-10);
-      right: to-rem(-10);
-      bottom: to-rem(-7);
+      top: to-rem(-13);
+      left: to-rem(-21);
+      right: to-rem(-21);
+      bottom: to-rem(-13);
       background-color: transparent;
       border-radius: to-rem(50);
       transition: background-color var(--transition-duration) ease;

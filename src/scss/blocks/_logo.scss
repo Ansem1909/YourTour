@@ -5,7 +5,7 @@
   flex-shrink: 0;
 
   &__image {
-    @include mobile {
+    @include mobile-b {
       width: to-rem(138);
       height: to-rem(23);
       flex-shrink: 0;

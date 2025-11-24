@@ -242,7 +242,7 @@
       position: absolute;
       left: 0;
       top: to-rem(-2);
-      @include square(to-rem(26));
+      @include square(to-rem(25));
       border: 2px solid var(--color-black);
       border-radius: to-rem(3);
       background-color: var(--color-white);
