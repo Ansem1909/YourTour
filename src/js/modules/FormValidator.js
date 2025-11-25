@@ -7,7 +7,7 @@ class FormValidator {
     email: '[data-js-form-email]',
     dateFrom: '[data-js-date-from]',
     dateTo: '[data-js-date-to]',
-    agreement: '[data-js-form-agreement]',
+    direction: '[data-js-form-direction]',
   }
 
   constructor(rootElement) {
@@ -23,32 +23,32 @@ class FormValidator {
       emailElement: this.form.querySelector(this.selectors.email),
       dateFromElement: this.form.querySelector(this.selectors.dateFrom),
       dateToElement: this.form.querySelector(this.selectors.dateTo),
-      agreementElement: this.form.querySelector(this.selectors.agreement),
+      directionElement: this.form.querySelector(this.selectors.direction),
     }
 
     this.init();
   }
 
   init() {
-    this.setupDateInputs();
     this.bindEvents();
   }
 
-  setupDateInputs() {
+  bindEvents() {
     [this.elements.dateFromElement, this.elements.dateToElement].forEach(element => {
       if (element) {
         element.addEventListener('focus', this.onDateFocus);
         element.addEventListener('blur', this.onDateBlur);
       }
     });
-  }
-
-  bindEvents() {
     if (this.elements.phoneElement) {
       this.elements.phoneElement.addEventListener('input', this.onPhoneInput);
     }
     if (this.elements.emailElement) {
       this.elements.emailElement.addEventListener('blur', this.onEmailBlur);
+    }
+    if (this.elements.directionElement) {
+      this.onDirectionChange({ target: this.elements.directionElement });
+      this.elements.directionElement.addEventListener('change', this.onDirectionChange);
     }
     this.form.addEventListener('submit', this.onSubmit);
     this.form.addEventListener('reset', this.onReset);
@@ -147,16 +147,13 @@ class FormValidator {
     }
   }
 
+  onDirectionChange = (e) => {
+    const select = e.target;
+    select.classList.toggle('is-placeholder', select.value === "");
+  }
+
   onSubmit = (e) => {
     e.preventDefault();
-
-    if (!this.elements.agreementElement.checked) {
-      this.elements.agreementElement.setCustomValidity('Необходимо принять условия соглашения');
-      this.elements.agreementElement.reportValidity();
-      return;
-    } else {
-      this.elements.agreementElement.setCustomValidity('');
-    }
 
     if (!this.form.checkValidity()) {
       const invalidField = this.form.querySelector(':invalid');

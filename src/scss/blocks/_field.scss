@@ -24,13 +24,6 @@
     border: 1px solid var(--color-beige200);
     border-radius: to-rem(10);
     transition: color var(--transition-duration) ease;
-    //max-width: 100%;
-
-
-
-    //@include mobile {
-    //  padding: to-rem(9.8);
-    //}
 
     @include tablet-s {
       padding: to-rem(9.8);
@@ -86,24 +79,13 @@
     appearance: none;
     width: 100%;
     position: relative;
-    //min-width: to-rem(500);
-    //
-    //
-    //@include tablet {
-    //  min-width: to-rem(389);
-    //}
-    //
-    //@include mobile {
-    //  min-width: to-rem(278);
-    //}
 
-    &:invalid,
-    &[value=""] {
+    &.is-placeholder {
       @include p-normal;
       color: var(--color-gray300);
     }
 
-    &:valid:not([value=""]) {
+    &:not(.is-placeholder) {
       @include p-normal;
       color: var(--color-black);
     }
@@ -114,8 +96,7 @@
     }
 
     option[value=""][disabled] {
-      @include p-normal;
-      color: var(--color-gray300);
+      display: none;
     }
   }
 
@@ -213,7 +194,7 @@
       gap: to-rem(8);
     }
 
-    &:focus-within {
+    &:focus-visible {
       .field__checkbox-label::before {
         outline: 1px solid var(--color-gray300);
         outline-offset: 2px;

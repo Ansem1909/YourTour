@@ -29,6 +29,10 @@
     display: flex;
     flex-direction: column;
     gap: to-rem(20);
+
+    @include tablet {
+      gap: to-rem(21);
+    }
   }
 
   &__description {

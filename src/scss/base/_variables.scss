@@ -26,17 +26,6 @@
 
   --font-family-base: 'Roboto', sans-serif;
 
-  //--container-width: #{to-rem(1170)};
-  //--container-padding-x: #{to-rem(375)};
-
-  //@include tablet {
-    //--container-width: #{to-rem(918)};
-    //--container-padding-x: #{to-rem(53)};
-  //  --container-width: #{fluid(918, 718)};
-  //  --container-padding-x: #{fluid(53, 43)};
-  //}
-  //--container-width: #{fluid(1170, 1000)};
-  //--container-padding-x: #{fluid(375, 100)};
   --container-width: #{fluid(1170, 1000)};
   --container-padding-x: #{fluid(375, 100)};
 

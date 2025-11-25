@@ -14,7 +14,7 @@
   @include photo-scale-hover;
 
   @include tablet {
-    padding-bottom: to-rem(60);
+    padding: to-rem(58) to-rem(60) to-rem(61);
   }
 
   @include mobile-b {

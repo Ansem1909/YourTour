@@ -6,6 +6,10 @@
 
   &--gallery {
     margin-top: to-rem(133);
+
+    @include tablet {
+      margin-top: to-rem(134);
+    }
   }
 
   @include mobile-b {
@@ -13,6 +17,10 @@
   }
 
   &--review {
+    @include tablet {
+      margin-top: to-rem(134);
+    }
+
     @include mobile-b  {
       margin-top: to-rem(77);
     }

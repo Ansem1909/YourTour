@@ -898,7 +898,12 @@
                 Направление
               </label>
               <div class="field__select">
-                <select class="tour-selection-form__cell field__control field__select-control" id="direction" name="direction">
+                <select
+                    class="tour-selection-form__cell field__control field__select-control"
+                    id="direction"
+                    name="direction"
+                    data-js-form-direction
+                >
                   <option class="field__select-placeholder" value="" selected disabled>Куда хотите ехать</option>
                   <option value="Vienna">Вена</option>
                   <option value="Yalta">Ялта</option>
@@ -974,10 +979,9 @@
               <div class="tour-selection-form__agreement">
                 <label class="field__checkbox">
                   <input class="field__checkbox-input"
-                         data-js-form-agreement
                          type="checkbox"
                          name="agreement"
-                         required>
+                  >
                   <span class="field__checkbox-label">
                   Нажимая кнопку, я принимаю условия
                   <a href="/" target="_blank" class="field__checkbox-link">
@@ -1387,7 +1391,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section section--small">
       <div class="container-small">
         <article class="contacts">
           <img class="contacts__image"

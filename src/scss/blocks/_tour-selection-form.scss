@@ -3,8 +3,6 @@
 
 .tour-selection-form {
   width: 100%;
-  //max-width: fluid(1170);
-  //height: to-rem(986);
   padding: to-rem(70);
   border-radius: var(--border-radius);
   background-color: var(--color-white);
@@ -12,9 +10,7 @@
   gap: to-rem(33) to-rem(30);
   grid-template-columns: repeat(2, 1fr);
 
-
   @include tablet {
-    //max-width: to-rem(918);
     padding: to-rem(60);
     gap: to-rem(33) var(--indent-mini);
   }
@@ -26,24 +22,7 @@
     border-radius: to-rem(30);
   }
 
-  @include mobile-b {
-    //max-width: to-rem(318);
-    //gap: to-rem(30);
-    //padding: var(--indent-mini) var(--indent-mini) to-rem(40);
-    //border-radius: to-rem(30);
-  }
-
   &__cell {
-    //width: fluid(500, 389);
-    //
-    //@include tablet {
-    //  width: fluid(389, 278);
-    //}
-    //
-    //@include mobile {
-    //  width: to-rem(278);
-    //}
-
     width: 100%;
 
     &--wide {
@@ -55,7 +34,6 @@
   &__buttons {
     display: flex;
     align-items: center;
-    //justify-content: center;
     gap: to-rem(33);
 
     @include tablet {
