@@ -1,15 +1,13 @@
 @use "../helpers" as *;
 
-*:focus,
-*:focus-visible{
+*:focus-visible {
   outline: 1px solid var(--color-orange200);
   outline-offset: 2px;
 }
 
 .tour-selection-form {
   &, & * {
-    &:focus-visible,
-    &:focus {
+    &:focus-visible {
       outline: 1px solid var(--color-gray300);
       outline-offset: 0;
     }
@@ -19,8 +17,7 @@
 .tour-selection-form {
   &__buttons {
     &, & * {
-      &:focus-visible,
-      &:focus {
+      &:focus-visible {
         outline: 1px solid var(--color-orange200);
         outline-offset: 2px;
       }

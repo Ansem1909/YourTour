@@ -169,7 +169,6 @@ class FormValidator {
 
   onReset = () => {
     setTimeout(() => {
-      this.setupDateInputs();
       this.form.querySelectorAll('input, select').forEach(field => {
         field.setCustomValidity('');
       });
