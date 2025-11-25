@@ -6,19 +6,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: to-rem(370);
+  width: 100%;
   height: to-rem(531);
   border-radius: var(--border-radius);
   padding: var(--indent-standart);
+  @include photo-scale-hover;
 
-  @include tablet {
-    width: to-rem(450);
-  }
-
-  @include mobile {
-    @include square(to-rem(318));
+  @include mobile-b {
+    height: to-rem(318);
     border-radius: to-rem(20);
-    padding: to-rem(25.5);
+    padding: to-rem(25.5) to-rem(25.5) to-rem(27);
   }
 
   &__picture {

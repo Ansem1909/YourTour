@@ -1,4 +1,4 @@
-class StickyHeader {
+class HeaderSticky {
   constructor() {
     this.header = document.querySelector('[data-js-header]');
     this.scrollThreshold = 450;
@@ -46,4 +46,4 @@ class StickyHeader {
   }
 }
 
-export default StickyHeader;
+export default HeaderSticky;

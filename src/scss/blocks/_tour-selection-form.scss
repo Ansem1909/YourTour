@@ -2,8 +2,7 @@
 @use "../base" as *;
 
 .tour-selection-form {
-  max-width: to-rem(1170);
-  max-height: to-rem(986);
+  width: 100%;
   padding: to-rem(70);
   border-radius: var(--border-radius);
   background-color: var(--color-white);
@@ -12,30 +11,19 @@
   grid-template-columns: repeat(2, 1fr);
 
   @include tablet {
-    max-width: to-rem(918);
     padding: to-rem(60);
     gap: to-rem(33) var(--indent-mini);
   }
 
-  @include mobile {
-    max-height: 100%;
+  @include tablet-s {
     grid-template-columns: 1fr;
-    max-width: to-rem(318);
     gap: to-rem(30);
     padding: var(--indent-mini) var(--indent-mini) to-rem(40);
     border-radius: to-rem(30);
   }
 
   &__cell {
-    width: to-rem(500);
-
-    @include tablet {
-      width: to-rem(389);
-    }
-
-    @include mobile {
-      width: to-rem(278);
-    }
+    width: 100%;
 
     &--wide {
       width: 100%;
@@ -46,15 +34,15 @@
   &__buttons {
     display: flex;
     align-items: center;
-    gap: to-rem(30);
+    gap: to-rem(33);
 
     @include tablet {
       gap: to-rem(33);
       margin-top: to-rem(3);
     }
 
-    @include mobile {
-      gap: to-rem(10);
+    @include mobile-b {
+      gap: to-rem(9);
       margin-top: 0;
     }
   }

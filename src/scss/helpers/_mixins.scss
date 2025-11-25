@@ -1,7 +1,6 @@
 @use 'sass:math';
 @use 'media' as *;
 
-
 @mixin fluid-text($max: 48, $min: 16) {
   font-size:fluid($max, $min);
 }
@@ -39,14 +38,15 @@
 @mixin photo-scale-hover {
   transition: transform 300ms ease;
   transform-origin: center;
+  z-index: 100;
 
   @include hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   @media (any-hover: none) {
     &:active {
-      transform: scale(1.2);
+      transform: scale(1.1);
       transition-duration: 150ms;
     }
 
@@ -80,7 +80,13 @@
     $font-weight: 700
   );
 
-  @include mobile {
+  @include tablet-s {
+    font-size: 65px;
+    line-height: 112%;
+    letter-spacing:0.68px;
+  }
+
+  @include mobile-b {
     font-size: 34px;
     line-height: 112%;
     letter-spacing:0.68px;
@@ -96,7 +102,13 @@
   $font-weight: 700
   );
 
-  @include mobile {
+  @include tablet-s {
+    font-size: 47px;
+    line-height: 112%;
+    letter-spacing: 0.68px;
+  }
+
+  @include mobile-b {
     font-size: 34px;
     line-height: 112%;
     letter-spacing: 0.68px;
@@ -112,12 +124,20 @@
     $font-weight: 500
   );
 
-  @include mobile {
+  @include tablet-s {
+    font-size: 29px;
+    line-height: 120%;
+    letter-spacing: 0.92px;
+    font-weight: 700;
+  }
+
+  @include mobile-b {
     font-size: 23px;
     line-height: 120%;
     letter-spacing: 0.92px;
     font-weight: 700;
   }
+
 }
 
 @mixin p-big {
@@ -129,7 +149,7 @@
     $font-weight: 700
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 16px;
     line-height: 142%;
   }
@@ -144,7 +164,7 @@
     $font-weight: 400
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 16px;
     line-height: 142%;
   }
@@ -159,7 +179,7 @@
     $font-weight: 400
   );
 
-  @include mobile {
+  @include tablet-s {
     font-size: 16px;
     line-height: 142%;
     letter-spacing: -0.16px,

@@ -7,7 +7,7 @@ class FormValidator {
     email: '[data-js-form-email]',
     dateFrom: '[data-js-date-from]',
     dateTo: '[data-js-date-to]',
-    agreement: '[data-js-form-agreement]',
+    direction: '[data-js-form-direction]',
   }
 
   constructor(rootElement) {
@@ -23,35 +23,32 @@ class FormValidator {
       emailElement: this.form.querySelector(this.selectors.email),
       dateFromElement: this.form.querySelector(this.selectors.dateFrom),
       dateToElement: this.form.querySelector(this.selectors.dateTo),
-      agreementElement: this.form.querySelector(this.selectors.agreement),
+      directionElement: this.form.querySelector(this.selectors.direction),
     }
 
     this.init();
   }
 
   init() {
-    this.setMinDates();
     this.bindEvents();
   }
 
-  setMinDates() {
-    const today = new Date().toISOString().split('T')[0];
-    this.elements.dateToElement.min = today;
-    this.elements.dateToElement.min = today;
-  }
-
   bindEvents() {
+    [this.elements.dateFromElement, this.elements.dateToElement].forEach(element => {
+      if (element) {
+        element.addEventListener('focus', this.onDateFocus);
+        element.addEventListener('blur', this.onDateBlur);
+      }
+    });
     if (this.elements.phoneElement) {
       this.elements.phoneElement.addEventListener('input', this.onPhoneInput);
     }
     if (this.elements.emailElement) {
-      this.elements.emailElement.addEventListener('input', this.onEmailInput);
+      this.elements.emailElement.addEventListener('blur', this.onEmailBlur);
     }
-    if (this.elements.dateFromElement) {
-      this.elements.dateFromElement.addEventListener('change', this.onDateChange);
-    }
-    if (this.elements.dateToElement) {
-      this.elements.dateToElement.addEventListener('change', this.onDateChange);
+    if (this.elements.directionElement) {
+      this.onDirectionChange({ target: this.elements.directionElement });
+      this.elements.directionElement.addEventListener('change', this.onDirectionChange);
     }
     this.form.addEventListener('submit', this.onSubmit);
     this.form.addEventListener('reset', this.onReset);
@@ -60,6 +57,65 @@ class FormValidator {
   getFormData() {
     const formData = new FormData(this.form);
     return Object.fromEntries(formData);
+  }
+
+  parseDate(dateString) {
+    if (!dateString) return null;
+
+    if (dateString.match(/^\d{1,2}\.\d{1,2}\.\d{4}$/)) {
+      const [day, month, year] = dateString.split('.');
+      const date = new Date(year, month - 1, day);
+      return isNaN(date.getTime()) ? null : date;
+    }
+
+    return null;
+  }
+
+  onDateFocus = (e) => {
+    const field = e.target;
+    const currentValue = field.value;
+
+    if (currentValue) {
+      const parsedDate = this.parseDate(currentValue);
+      if (parsedDate) {
+        const year = parsedDate.getFullYear();
+        const month = String(parsedDate.getMonth() + 1).padStart(2, '0');
+        const day = String(parsedDate.getDate()).padStart(2, '0');
+        field.value = `${year}-${month}-${day}`;
+      }
+    }
+
+    field.type = 'date';
+    field.min = new Date().toISOString().split('T')[0];
+  }
+
+  onDateBlur = (e) => {
+    const field = e.target;
+
+    field.type = 'text';
+
+    if (!field.value) {
+      return;
+    }
+
+    const date = new Date(field.value);
+    if (!isNaN(date.getTime())) {
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+      field.value = `${day}.${month}.${year}`;
+    }
+
+    const selectedDate = this.parseDate(field.value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate && selectedDate < today) {
+      field.setCustomValidity('Нельзя выбрать прошедшую дату');
+      field.reportValidity();
+    } else {
+      field.setCustomValidity('');
+    }
   }
 
   onPhoneInput = (e) => {
@@ -83,77 +139,23 @@ class FormValidator {
     e.target.value = formattedValue;
   }
 
-  onEmailInput = (e) => {
-    const email = e.target.value.trim();
-    if (email && !e.target.validity.valid) {
-      e.target.setCustomValidity('Пожалуйста, введите корректный email адрес (например, example@mail.com)');
-    } else {
-      e.target.setCustomValidity('');
-    }
-  }
-
-  validateDate(field) {
-    if (!field.value) {
-      return '';
-    }
-
-    const selectedDate = new Date(field.value);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    if (isNaN(selectedDate.getTime())) {
-      return 'Пожалуйста, введите корректную дату';
-    }
-
-    if (selectedDate < today) {
-      return 'Нельзя выбрать прошедшую дату';
-    }
-
-    if (field.id === 'date-to' && this.elements.dateFromElement.value) {
-      const dateFromValue = this.elements.dateFromElement.value;
-      if (dateFromValue) {
-        const dateFrom = new Date(dateFromValue);
-        if (!isNaN(dateFrom.getTime()) && selectedDate < dateFrom) {
-          return '"Дата до" не может быть раньше "Даты от"';
-        }
-      }
-    }
-
-    return '';
-  }
-
-  onDateChange = (e) => {
+  onEmailBlur = (e) => {
     const field = e.target;
 
-    field.setCustomValidity('');
-
-    const error = this.validateDate(field);
-    if (error) {
-      field.setCustomValidity(error);
+    if (field.value.trim() !== '') {
+      field.reportValidity();
     }
+  }
+
+  onDirectionChange = (e) => {
+    const select = e.target;
+    select.classList.toggle('is-placeholder', select.value === "");
   }
 
   onSubmit = (e) => {
     e.preventDefault();
 
-    let isValid = true;
-
-    [this.elements.dateFromElement, this.elements.dateToElement].forEach(field => {
-      field.setCustomValidity('');
-      const error = this.validateDate(field);
-      if (error) {
-        field.setCustomValidity(error);
-      }
-    });
-
-    if (!this.elements.agreementElement.checked) {
-      this.elements.agreementElement.setCustomValidity('Необходимо принять условия соглашения');
-      isValid = false;
-    } else {
-      this.elements.agreementElement.setCustomValidity('');
-    }
-
-    if (!this.form.checkValidity() || !isValid) {
+    if (!this.form.checkValidity()) {
       const invalidField = this.form.querySelector(':invalid');
       if (invalidField) {
         invalidField.focus();
@@ -167,7 +169,7 @@ class FormValidator {
 
   onReset = () => {
     setTimeout(() => {
-      this.setMinDates();
+      this.setupDateInputs();
       this.form.querySelectorAll('input, select').forEach(field => {
         field.setCustomValidity('');
       });
