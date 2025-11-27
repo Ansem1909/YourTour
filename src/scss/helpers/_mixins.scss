@@ -113,6 +113,10 @@
     line-height: 112%;
     letter-spacing: 0.68px;
   }
+
+  @media (max-width: 350px) {
+    font-size: 30px;
+  }
 }
 
 @mixin h3 {

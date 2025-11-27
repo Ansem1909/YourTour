@@ -62,6 +62,10 @@
       @include mobile-b {
         gap: to-rem(15);
       }
+
+      @media (max-width: 350px) {
+        flex-direction: column;
+      }
     }
 
     &__link {

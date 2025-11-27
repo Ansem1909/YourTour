@@ -40,8 +40,8 @@
   }
 
   @include mobile {
-    --container-width: #{to-rem(291)};
-    --container-padding-x: #{to-rem(34.5)};
+    --container-width: #{fluidWithVw(291, 250, 320, 360)};
+    --container-padding-x: #{fluidWithVw(34.5, 10, 320,360)};
   }
 }
 

@@ -101,5 +101,9 @@
     @include p-normal;
     color: var(--color-gray300);
     text-align: center;
+
+    @include tablet-s {
+      max-width: to-rem(320);
+    }
   }
 }

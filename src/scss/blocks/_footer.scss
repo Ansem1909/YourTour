@@ -5,7 +5,7 @@
   background-color: var(--color-beige200);
   margin-top: to-rem(135);
 
-  @include mobile {
+  @include mobile-b {
     margin-top: to-rem(75);
   }
 

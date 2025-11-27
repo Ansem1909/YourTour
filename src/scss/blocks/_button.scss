@@ -71,7 +71,7 @@
       padding: to-rem(12.5) to-rem(30.5);
     }
 
-    @include mobile-s {
+    @media (max-width: 350px) {
       padding: to-rem(12) to-rem(20.5);
     }
 

@@ -6,13 +6,17 @@
   align-items: center;
   justify-content: left;
   gap: to-rem(30);
-  #min-width: to-rem(771);
+  //min-width: to-rem(771);
 
   @include tablet-s {
     flex-direction: column;
     justify-content: center;
     text-align: center;
     min-width: to-rem(291);
+  }
+
+  @media (max-width: 350px) {
+    min-width: to-rem(200);
   }
 
   &__image {
