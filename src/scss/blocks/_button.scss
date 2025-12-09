@@ -44,10 +44,6 @@
       z-index: -1;
     }
 
-    &:hover::before {
-      background-color: var(--color-green400);
-    }
-
     &:active::before {
       background-color: var(--color-orange200);
     }

@@ -2,6 +2,7 @@
 @use "../base" as *;
 
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: to-rem(6);
@@ -39,6 +40,10 @@
       cursor: pointer;
     }
 
+    &--error {
+      border-color: var(--color-orange200) !important;
+    }
+
     &:is(textarea) {
       width: 100%;
       resize: none;
@@ -49,6 +54,26 @@
         height: to-rem(132);
       }
     }
+  }
+
+  &__error {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    color: var(--color-orange200);
+    font-size: 12px;
+    line-height: 1.2;
+    margin-top: 3px;
+    padding: 0 2px;
+    animation: fadeIn 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-2px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   &__select {

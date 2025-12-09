@@ -8,6 +8,7 @@ class FormValidator {
     dateFrom: '[data-js-date-from]',
     dateTo: '[data-js-date-to]',
     direction: '[data-js-form-direction]',
+    required: '[required]',
   }
 
   constructor(rootElement) {
@@ -24,7 +25,10 @@ class FormValidator {
       dateFromElement: this.form.querySelector(this.selectors.dateFrom),
       dateToElement: this.form.querySelector(this.selectors.dateTo),
       directionElement: this.form.querySelector(this.selectors.direction),
+      requiredElements: this.form.querySelectorAll(this.selectors.required),
     }
+
+    this.form.addEventListener('invalid', this.onInvalidField, true);
 
     this.init();
   }
@@ -34,24 +38,113 @@ class FormValidator {
   }
 
   bindEvents() {
+    this.elements.requiredElements.forEach(field => {
+      field.addEventListener('invalid', (e) => e.preventDefault());
+      field.addEventListener('blur', this.validateRequiredField);
+      field.addEventListener('change', this.validateRequiredField);
+    });
     [this.elements.dateFromElement, this.elements.dateToElement].forEach(element => {
       if (element) {
+        element.addEventListener('invalid', (e) => e.preventDefault());
         element.addEventListener('focus', this.onDateFocus);
         element.addEventListener('blur', this.onDateBlur);
       }
     });
     if (this.elements.phoneElement) {
+      this.elements.phoneElement.addEventListener('invalid', (e) => e.preventDefault());
       this.elements.phoneElement.addEventListener('input', this.onPhoneInput);
     }
     if (this.elements.emailElement) {
+      this.elements.emailElement.addEventListener('invalid', (e) => e.preventDefault());
       this.elements.emailElement.addEventListener('blur', this.onEmailBlur);
     }
     if (this.elements.directionElement) {
+      this.elements.directionElement.addEventListener('invalid', (e) => e.preventDefault());
       this.onDirectionChange({ target: this.elements.directionElement });
       this.elements.directionElement.addEventListener('change', this.onDirectionChange);
     }
     this.form.addEventListener('submit', this.onSubmit);
     this.form.addEventListener('reset', this.onReset);
+  }
+
+  onInvalidField = (e) => {
+    e.preventDefault();
+  }
+
+  showFieldError(field, message) {
+    this.hideFieldError(field);
+
+    field.setCustomValidity(message || '');
+
+    field.classList.add('field__control--error');
+
+    field.setAttribute('aria-invalid', 'true');
+    field.setAttribute('aria-describedby', `${field.id || field.name}-error`);
+
+    const errorElement = document.createElement('div');
+    errorElement.className = 'field__error';
+    errorElement.textContent = message || field.validationMessage || 'Поле заполнено неверно';
+    errorElement.id = `${field.id || field.name}-error`;
+    errorElement.setAttribute('role', 'alert');
+
+    const fieldContainer = field.closest('.field');
+    if (fieldContainer) {
+      fieldContainer.classList.add('field--has-error');
+      fieldContainer.appendChild(errorElement);
+    } else {
+      const parent = field.parentElement;
+      if (parent) {
+        parent.appendChild(errorElement);
+      }
+    }
+
+    const removeErrorOnInput = () => {
+      if (field.value.trim() && field.checkValidity()) {
+        this.hideFieldError(field);
+        field.removeEventListener('input', removeErrorOnInput);
+      }
+    };
+
+    field.addEventListener('input', removeErrorOnInput);
+  }
+
+  hideFieldError(field) {
+    field.setCustomValidity('');
+    field.classList.remove('field__control--error');
+
+    field.removeAttribute('aria-invalid');
+    field.removeAttribute('aria-describedby');
+
+    const fieldContainer = field.closest('.field');
+    if (fieldContainer) {
+      fieldContainer.classList.remove('field--has-error');
+    }
+
+    const errorId = `${field.id || field.name}-error`;
+    const errorElement = document.getElementById(errorId) ||
+      field.parentElement.querySelector('.field__error');
+
+    if (errorElement) {
+      errorElement.remove();
+    }
+  }
+
+  clearAllErrors() {
+    this.form.querySelectorAll('input, select, textarea').forEach(field => {
+      this.hideFieldError(field);
+    });
+  }
+
+  validateRequiredField = (e) => {
+    const field = e.target;
+
+    if (e.type === 'blur' || e.type === 'change') {
+      if (!field.value.trim()) {
+        this.showFieldError(field, 'Это поле обязательно для заполнения');
+      } else {
+        this.hideFieldError(field);
+      }
+    }
   }
 
   getFormData() {
@@ -95,6 +188,7 @@ class FormValidator {
     field.type = 'text';
 
     if (!field.value) {
+      this.hideFieldError(field);
       return;
     }
 
@@ -111,10 +205,9 @@ class FormValidator {
     today.setHours(0, 0, 0, 0);
 
     if (selectedDate && selectedDate < today) {
-      field.setCustomValidity('Нельзя выбрать прошедшую дату');
-      field.reportValidity();
+      this.showFieldError(field, 'Нельзя выбрать прошедшую дату');
     } else {
-      field.setCustomValidity('');
+      this.hideFieldError(field);
     }
   }
 
@@ -142,8 +235,14 @@ class FormValidator {
   onEmailBlur = (e) => {
     const field = e.target;
 
-    if (field.value.trim() !== '') {
-      field.reportValidity();
+    if (field.value.trim() === '') {
+      return;
+    }
+
+    if (!field.checkValidity()) {
+      this.showFieldError(field, 'Введите корректный email адрес, например ana@gmail.com');
+    } else {
+      this.hideFieldError(field);
     }
   }
 
@@ -155,11 +254,48 @@ class FormValidator {
   onSubmit = (e) => {
     e.preventDefault();
 
-    if (!this.form.checkValidity()) {
-      const invalidField = this.form.querySelector(':invalid');
-      if (invalidField) {
-        invalidField.focus();
-        invalidField.reportValidity();
+    this.clearAllErrors();
+
+    let isValid = true;
+    const invalidFields = [];
+
+    this.elements.requiredElements.forEach(field => {
+      if (!field.value.trim()) {
+        this.showFieldError(field, 'Это поле обязательно для заполнения');
+        invalidFields.push(field);
+        isValid = false;
+      }
+    });
+
+    [this.elements.dateFromElement, this.elements.dateToElement].forEach(field => {
+      if (field && field.value) {
+        const selectedDate = this.parseDate(field.value);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        if (selectedDate && selectedDate < today) {
+          this.showFieldError(field, 'Нельзя выбрать прошедшую дату');
+          invalidFields.push(field);
+          isValid = false;
+        }
+      }
+    });
+
+    if (this.elements.emailElement && this.elements.emailElement.value.trim() !== '') {
+      if (!this.elements.emailElement.checkValidity()) {
+        this.showFieldError(this.elements.emailElement, 'Введите корректный email адрес, например ana@gmail.com');
+        invalidFields.push(this.elements.emailElement);
+        isValid = false;
+      }
+    }
+
+    if (!isValid) {
+      if (invalidFields[0]) {
+        invalidFields[0].scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
+        invalidFields[0].focus();
       }
       return;
     }
@@ -169,8 +305,9 @@ class FormValidator {
 
   onReset = () => {
     setTimeout(() => {
-      this.form.querySelectorAll('input, select').forEach(field => {
-        field.setCustomValidity('');
+      this.clearAllErrors();
+      this.form.querySelectorAll('input, select, textarea').forEach(field => {
+        field.classList.remove('field__control--error');
       });
     }, 0);
   }

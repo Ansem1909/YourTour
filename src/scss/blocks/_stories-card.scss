@@ -2,16 +2,20 @@
 @use "../base" as *;
 
 .stories-card {
+  $self: &;
+
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: to-rem(60);
   padding-bottom: to-rem(58);
+  border-radius: var(--border-radius);
   color: var(--color-white);
   width: 100%;
   height: to-rem(567);
-  @include photo-scale-hover;
+  overflow: hidden;
+  cursor: pointer;
 
   @include tablet {
     padding: to-rem(58) to-rem(60) to-rem(61);
@@ -21,6 +25,7 @@
     height: to-rem(455);
     padding: to-rem(30);
     padding-bottom: to-rem(33);
+    border-radius: var(--border-radius-mini);
   }
 
   &__picture {
@@ -30,6 +35,7 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+    overflow: hidden;
   }
 
   &__image {
@@ -37,8 +43,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease;
     border-radius: var(--border-radius);
+    transition: transform var(--transition-duration) ease;
+    transform-origin: center;
 
     @include mobile-b {
       border-radius: var(--border-radius-mini);
@@ -120,5 +127,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &:hover {
+    #{$self}__image {
+      transform: scale(1.2);
+    }
+
+    #{$self}__button {
+      &::before {
+        background-color: var(--color-green400);
+      }
+
+      &:active::before {
+        background-color: var(--color-orange200);
+      }
+    }
   }
 }
