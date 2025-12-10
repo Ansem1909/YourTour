@@ -963,29 +963,41 @@
               ></textarea>
             </div>
             <div class="tour-selection-form__cell field">
-              <span class="field__label">Вам есть 18 лет?</span>
-              <div class="field__radios">
+              <span class="field__label">Вам есть 18 лет?<span class="field__required-star" aria-hidden="true"> *</span></span>
+              <div class="field__radios" data-js-form-adult>
                 <label class="field__radio">
-                  <input type="radio" name="isAdult" value="yes" class="field__radio-input">
+                  <input
+                      type="radio"
+                      name="isAdult"
+                      value="yes"
+                      class="field__radio-input"
+                      required>
                   <span class="field__radio-text">Да</span>
                 </label>
                 <label class="field__radio">
-                  <input type="radio" name="isAdult" value="no" class="field__radio-input">
+                  <input
+                      type="radio"
+                      name="isAdult"
+                      value="no"
+                      class="field__radio-input"
+                      required>
                   <span class="field__radio-text">Нет</span>
                 </label>
               </div>
             </div>
             <div class="tour-selection-form__cell tour-selection-form__cell--wide">
-              <div class="tour-selection-form__agreement">
+              <div class="tour-selection-form__agreement field">
                 <label class="field__checkbox">
                   <input class="field__checkbox-input"
                          type="checkbox"
                          name="agreement"
+                         required
+                         data-js-form-agreement
                   >
                   <span class="field__checkbox-label">
                   Нажимая кнопку, я принимаю условия
                   <a href="/" target="_blank" class="field__checkbox-link">
-                    Лицензионного договора
+                    Лицензионного договора<span class="field__required-star" aria-hidden="true"> *</span>
                   </a>
                 </span>
                 </label>
@@ -1257,7 +1269,7 @@
                         <a href="https://vk.com/chtoygodno"
                            class="soc1als__link"
                            target="_blank"
-                           aria-label="vkontakte"
+                           aria-label="YouTube"
                            title="YouTube"
                         >
                           YouTube

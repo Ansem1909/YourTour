@@ -9,6 +9,8 @@ class FormValidator {
     dateTo: '[data-js-date-to]',
     direction: '[data-js-form-direction]',
     required: '[required]',
+    adult: '[data-js-form-adult] input[name="isAdult"]',
+    agreement: '[data-js-form-agreement]',
   }
 
   constructor(rootElement) {
@@ -26,6 +28,8 @@ class FormValidator {
       dateToElement: this.form.querySelector(this.selectors.dateTo),
       directionElement: this.form.querySelector(this.selectors.direction),
       requiredElements: this.form.querySelectorAll(this.selectors.required),
+      adultElements: this.form.querySelectorAll(this.selectors.adult),
+      agreementElement: this.form.querySelector(this.selectors.agreement),
     }
 
     this.form.addEventListener('invalid', this.onInvalidField, true);
@@ -43,6 +47,7 @@ class FormValidator {
       field.addEventListener('blur', this.validateRequiredField);
       field.addEventListener('change', this.validateRequiredField);
     });
+
     [this.elements.dateFromElement, this.elements.dateToElement].forEach(element => {
       if (element) {
         element.addEventListener('invalid', (e) => e.preventDefault());
@@ -50,19 +55,31 @@ class FormValidator {
         element.addEventListener('blur', this.onDateBlur);
       }
     });
+
     if (this.elements.phoneElement) {
       this.elements.phoneElement.addEventListener('invalid', (e) => e.preventDefault());
       this.elements.phoneElement.addEventListener('input', this.onPhoneInput);
     }
+
     if (this.elements.emailElement) {
       this.elements.emailElement.addEventListener('invalid', (e) => e.preventDefault());
       this.elements.emailElement.addEventListener('blur', this.onEmailBlur);
     }
+
     if (this.elements.directionElement) {
       this.elements.directionElement.addEventListener('invalid', (e) => e.preventDefault());
       this.onDirectionChange({ target: this.elements.directionElement });
       this.elements.directionElement.addEventListener('change', this.onDirectionChange);
     }
+
+    this.elements.adultElements?.forEach(radio => {
+      radio.addEventListener('change', this.validateAdultField);
+    });
+
+    if (this.elements.agreementElement) {
+      this.elements.agreementElement.addEventListener('change', this.validateAgreementField);
+    }
+
     this.form.addEventListener('submit', this.onSubmit);
     this.form.addEventListener('reset', this.onReset);
   }
@@ -73,6 +90,19 @@ class FormValidator {
 
   showFieldError(field, message) {
     this.hideFieldError(field);
+
+    if (field.classList?.contains('field')) {
+      field.classList.add('field--has-error');
+
+      const errorElement = document.createElement('div');
+      errorElement.className = 'field__error';
+      errorElement.textContent = message;
+      errorElement.id = `${field.id || 'field-container'}-error`;
+      errorElement.setAttribute('role', 'alert');
+
+      field.appendChild(errorElement);
+      return;
+    }
 
     field.setCustomValidity(message || '');
 
@@ -109,6 +139,25 @@ class FormValidator {
   }
 
   hideFieldError(field) {
+    if (field.classList?.contains('field')) {
+      field.classList.remove('field--has-error');
+
+      const errorElements = field.querySelectorAll('.field__error');
+      errorElements.forEach(errorElement => {
+        errorElement.remove();
+      });
+
+      const inputs = field.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => {
+        input.setCustomValidity('');
+        input.classList.remove('field__control--error');
+        input.removeAttribute('aria-invalid');
+        input.removeAttribute('aria-describedby');
+      });
+
+      return;
+    }
+
     field.setCustomValidity('');
     field.classList.remove('field__control--error');
 
@@ -143,6 +192,42 @@ class FormValidator {
         this.showFieldError(field, 'Это поле обязательно для заполнения');
       } else {
         this.hideFieldError(field);
+      }
+    }
+  }
+
+  validateAdultField = (e) => {
+    const radios = this.elements.adultElements;
+    const isChecked = Array.from(radios).some(radio => radio.checked);
+
+    const adultContainer = radios[0]?.closest('.field');
+
+    if (!isChecked) {
+      if (adultContainer) {
+        this.showFieldError(adultContainer, 'Выберите, есть ли вам 18 лет');
+      }
+    } else {
+      if (adultContainer) {
+        this.hideFieldError(adultContainer);
+      }
+    }
+  }
+
+  validateAgreementField = (e) => {
+    const checkbox = e.target;
+    const container = checkbox.closest('.field');
+
+    if (!checkbox.checked) {
+      if (container) {
+        this.showFieldError(container, 'Необходимо принять условия лицензионного договора');
+      } else {
+        this.showFieldError(checkbox, 'Необходимо принять условия лицензионного договора');
+      }
+    } else {
+      if (container) {
+        this.hideFieldError(container);
+      } else {
+        this.hideFieldError(checkbox);
       }
     }
   }
@@ -287,6 +372,28 @@ class FormValidator {
         invalidFields.push(this.elements.emailElement);
         isValid = false;
       }
+    }
+
+    const adultChecked = Array.from(this.elements.adultElements || []).some(radio => radio.checked);
+    if (!adultChecked) {
+      const container = document.querySelector(this.selectors.adult)?.closest('.field');
+      if (container) {
+        this.showFieldError(container, 'Выберите, есть ли вам 18 лет');
+        invalidFields.push(container);
+        isValid = false;
+      }
+    }
+
+    if (this.elements.agreementElement && !this.elements.agreementElement.checked) {
+      const container = this.elements.agreementElement.closest('.field');
+      if (container) {
+        this.showFieldError(container, 'Необходимо принять условия лицензионного договора');
+        invalidFields.push(container);
+      } else {
+        this.showFieldError(this.elements.agreementElement, 'Необходимо принять условия лицензионного договора');
+        invalidFields.push(this.elements.agreementElement);
+      }
+      isValid = false;
     }
 
     if (!isValid) {

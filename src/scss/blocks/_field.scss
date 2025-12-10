@@ -34,6 +34,11 @@
       color: var(--color-gray300);
     }
 
+    &[name="dateFrom"],
+    &[name="dateTo"] {
+      text-transform: uppercase;
+    }
+
     &:hover,
     &:focus {
       background-color: var(--color-beige200);
