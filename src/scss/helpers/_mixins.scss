@@ -35,27 +35,6 @@
   overflow: hidden !important;
 }
 
-//@mixin photo-scale-hover {
-//  transition: transform 300ms ease;
-//  transform-origin: center;
-//
-//  @include hover {
-//    transform: scale(1.2);
-//  }
-//
-//  @media (any-hover: none) {
-//    &:active {
-//      transform: scale(1.2);
-//      transition-duration: 150ms;
-//    }
-//
-//    &:not(:active) {
-//      transform: scale(1);
-//      transition-duration: 300ms;
-//    }
-//  }
-//}
-
 @mixin text-style(
   $font-family: var(--font-family-base),
   $font-size: 16px,

@@ -889,7 +889,6 @@
                      data-js-form-name
                      name="firstName"
                      placeholder="Введите Ваше имя"
-                     minlength="2"
                      required
               >
             </div>
@@ -941,6 +940,8 @@
                      id="date-from"
                      name="dateFrom"
                      placeholder="ДД.ММ.ГГГГ"
+                     pattern="\d{2}\.\d{2}\.\d{4}"
+                     maxlength="10"
               >
             </div>
             <div class="tour-selection-form__cell field">
@@ -951,6 +952,8 @@
                      id="date-to"
                      name="dateTo"
                      placeholder="ДД.ММ.ГГГГ"
+                     pattern="\d{2}\.\d{2}\.\d{4}"
+                     maxlength="10"
               >
             </div>
             <div class="tour-selection-form__cell tour-selection-form__cell--wide field">
