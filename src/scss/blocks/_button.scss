@@ -34,19 +34,14 @@
     &::before {
       content: '';
       position: absolute;
-      top: to-rem(-7);
-      left: to-rem(-10);
-      right: to-rem(-10);
-      bottom: to-rem(-7);
+      top: to-rem(-13);
+      left: to-rem(-21);
+      right: to-rem(-21);
+      bottom: to-rem(-13);
       background-color: transparent;
       border-radius: to-rem(50);
       transition: background-color var(--transition-duration) ease;
       z-index: -1;
-
-    }
-
-    &:hover::before {
-      background-color: var(--color-green400);
     }
 
     &:active::before {
@@ -60,8 +55,20 @@
     border-radius: to-rem(10);
     @include p-normal;
 
+    @include tablet-s {
+      padding: to-rem(12) to-rem(40.5);
+    }
+
+    @include mobile-b {
+      padding: to-rem(12) fluid(35.5, 30.5);
+    }
+
     @include mobile {
-      padding: to-rem(12) to-rem(30.5);
+      padding: to-rem(12.5) to-rem(30.5);
+    }
+
+    @media (max-width: 350px) {
+      padding: to-rem(12) to-rem(20.5);
     }
 
     &--submit {

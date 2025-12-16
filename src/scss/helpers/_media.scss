@@ -1,9 +1,12 @@
 @use './functions' as *;
 
 $desktop: 1920;
-$laptop: 1500.98;
-$tablet: 1024.98;
-$mobile: 360.98;
+$laptop: 1400.98;
+$tablet: 1023.99;
+$tablet-s: 767.99;
+$mobile-b: 479.99;
+$mobile: 360.99;
+$mobile-s: 320.99;
 
 @mixin laptop-above {
   @media (width > to-rem($laptop)){
@@ -29,6 +32,30 @@ $mobile: 360.98;
   }
 }
 
+@mixin tablet-s-above {
+  @media (width > to-rem($tablet-s)){
+    @content;
+  }
+}
+
+@mixin tablet-s {
+  @media (width <= to-rem($tablet-s)){
+    @content;
+  }
+}
+
+@mixin mobile-b-above {
+  @media (width > to-rem($mobile-b)){
+    @content;
+  }
+}
+
+@mixin mobile-b {
+  @media (width <= to-rem($mobile-b)){
+    @content;
+  }
+}
+
 @mixin mobile-above {
   @media (width > to-rem($mobile)){
     @content;
@@ -37,6 +64,18 @@ $mobile: 360.98;
 
 @mixin mobile {
   @media (width <= to-rem($mobile)){
+    @content;
+  }
+}
+
+@mixin mobile-s-above {
+  @media (width > to-rem($mobile-s)){
+    @content;
+  }
+}
+
+@mixin mobile-s {
+  @media (width <= to-rem($mobile-s)){
     @content;
   }
 }

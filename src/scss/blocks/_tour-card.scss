@@ -2,23 +2,23 @@
 @use "../base" as *;
 
 .tour-card {
+  $self: &;
+
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: to-rem(370);
+  width: 100%;
   height: to-rem(531);
   border-radius: var(--border-radius);
   padding: var(--indent-standart);
+  overflow: hidden;
+  cursor: pointer;
 
-  @include tablet {
-    width: to-rem(450);
-  }
-
-  @include mobile {
-    @include square(to-rem(318));
+  @include mobile-b {
+    height: to-rem(318);
     border-radius: to-rem(20);
-    padding: to-rem(25.5);
+    padding: to-rem(25.5) to-rem(25.5) to-rem(27);
   }
 
   &__picture {
@@ -28,6 +28,7 @@
     width: 100%;
     height: 100%;
     z-index: 0;
+    overflow: hidden;
   }
 
   &__image {
@@ -35,8 +36,9 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease;
     border-radius: var(--border-radius);
+    transition: transform var(--transition-duration) ease;
+    transform-origin: center;
 
     @include mobile {
       border-radius: to-rem(20);
@@ -88,5 +90,21 @@
   &__price {
     @include p-small;
     color: var(--color-white);
+  }
+
+  &:hover {
+    #{$self}__image {
+      transform: scale(1.2);
+    }
+
+    #{$self}__button {
+      &::before {
+        background-color: var(--color-green400);
+      }
+
+      &:active::before {
+        background-color: var(--color-orange200);
+      }
+    }
   }
 }

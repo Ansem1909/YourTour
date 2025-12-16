@@ -4,18 +4,24 @@
 .section {
   margin-top: to-rem(135);
 
-  @include mobile {
+  &--gallery {
+    margin-top: to-rem(133);
+
+    @include tablet {
+      margin-top: to-rem(134);
+    }
+  }
+
+  @include mobile-b {
     margin-top: to-rem(75);
   }
 
   &--review {
-    @include mobile {
-      margin-top: to-rem(77);
+    @include tablet {
+      margin-top: to-rem(134);
     }
-  }
 
-  &--gallery {
-    @include mobile {
+    @include mobile-b  {
       margin-top: to-rem(77);
     }
   }
@@ -25,10 +31,9 @@
       margin-top: to-rem(137);
     }
 
-    @include mobile {
+    @include mobile-b  {
       margin-top: to-rem(75);
     }
-
   }
 
   &__body {
@@ -42,22 +47,19 @@
     align-items: center;
     row-gap: to-rem(100);
 
-    @include mobile {
+    @include mobile-b  {
       row-gap: to-rem(40);
     }
 
-     &--review {
-       @include mobile {
-         row-gap: to-rem(52);
+     &--review,
+     &--gallery {
+       @include mobile-b  {
+         row-gap: to-rem(50);
        }
      }
 
     &--gallery {
       padding-block: 0;
-
-      @include mobile {
-        row-gap: to-rem(51);
-      }
     }
 
     &--tabs {
@@ -67,7 +69,7 @@
         row-gap: to-rem(37);
       }
 
-      @include mobile {
+      @include mobile-b {
         row-gap: to-rem(30);
       }
     }
@@ -75,7 +77,7 @@
     &--stories {
       row-gap: to-rem(99);
 
-      @include mobile {
+      @include mobile-b {
         row-gap: to-rem(50);
       }
     }
@@ -89,7 +91,7 @@
     text-align: center;
     row-gap: to-rem(30);
 
-    @include mobile {
+    @include mobile-b {
       row-gap: var(--indent-mini);
     }
   }
@@ -99,5 +101,9 @@
     @include p-normal;
     color: var(--color-gray300);
     text-align: center;
+
+    @include tablet-s {
+      max-width: to-rem(320);
+    }
   }
 }

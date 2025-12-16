@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 130%;
     max-height: to-rem(830);
     background-image: url("../assets/images/header-and-hero-background.jpg");
     background-size: cover;
@@ -18,7 +18,15 @@
 
     @include tablet {
       background-image: url("../assets/images/header-and-hero-bg-for-tablet.jpg");
-      height: to-rem(831);
+      max-height: fluidWithVw(831, 828, 1023.99, 767.99);
+    }
+
+    @include tablet-s {
+      max-height: fluidWithVw(628, 480, 767.99, 479.99);
+    }
+
+    @include mobile-b {
+      max-height: fluidWithVw(462, 488, 479.99, 360.99);
     }
 
     @include mobile {

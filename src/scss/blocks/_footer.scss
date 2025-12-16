@@ -5,7 +5,7 @@
   background-color: var(--color-beige200);
   margin-top: to-rem(135);
 
-  @include mobile {
+  @include mobile-b {
     margin-top: to-rem(75);
   }
 
@@ -15,7 +15,7 @@
     align-items: center;
     padding-block: to-rem(30);
 
-    @include mobile {
+    @include tablet-s {
       flex-direction: column;
       justify-content: center;
       align-items: center;

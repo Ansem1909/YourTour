@@ -9,7 +9,7 @@
     gap: to-rem(18);
   }
 
-  @include mobile {
+  @include tablet-s {
     flex-direction: column;
   }
 
@@ -46,6 +46,7 @@
 
     @include mobile {
       gap: to-rem(25);
+      line-height: 143%;
     }
   }
 

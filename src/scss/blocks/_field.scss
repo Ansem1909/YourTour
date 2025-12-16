@@ -2,11 +2,12 @@
 @use "../base" as *;
 
 .field {
+  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: to-rem(6);
 
-  @include mobile {
+  @include mobile-b {
     row-gap: to-rem(8);
   }
 
@@ -16,6 +17,7 @@
   }
 
   &__control {
+    width: 100%;
     @include p-normal;
     color: var(--color-black);
     background-color: var(--color-beige100);
@@ -24,12 +26,17 @@
     border-radius: to-rem(10);
     transition: color var(--transition-duration) ease;
 
-    @include mobile {
+    @include tablet-s {
       padding: to-rem(9.8);
     }
 
     &::placeholder {
       color: var(--color-gray300);
+    }
+
+    &[name="dateFrom"],
+    &[name="dateTo"] {
+      text-transform: uppercase;
     }
 
     &:hover,
@@ -38,11 +45,12 @@
       cursor: pointer;
     }
 
-    &:focus {
-      border: 1px solid var(--color-gray300);
+    &--error {
+      border-color: var(--color-orange200) !important;
     }
 
     &:is(textarea) {
+      width: 100%;
       resize: none;
       height: to-rem(153);
       overflow-y: auto;
@@ -53,8 +61,30 @@
     }
   }
 
+  &__error {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    color: var(--color-orange200);
+    font-size: 12px;
+    line-height: 1.2;
+    margin-top: 3px;
+    padding: 0 2px;
+    animation: fadeIn 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-2px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   &__select {
     position: relative;
+    width: 100%;
+
 
     &::after {
       content: "";
@@ -76,24 +106,16 @@
   }
 
   &__select-control {
-    min-width: to-rem(500);
     appearance: none;
+    width: 100%;
+    position: relative;
 
-    @include tablet {
-      min-width: to-rem(389);
-    }
-
-    @include mobile {
-      min-width: to-rem(278);
-    }
-
-    &:invalid,
-    &[value=""] {
+    &.is-placeholder {
       @include p-normal;
       color: var(--color-gray300);
     }
 
-    &:valid:not([value=""]) {
+    &:not(.is-placeholder) {
       @include p-normal;
       color: var(--color-black);
     }
@@ -104,8 +126,7 @@
     }
 
     option[value=""][disabled] {
-      @include p-normal;
-      color: var(--color-gray300);
+      display: none;
     }
   }
 
@@ -120,9 +141,9 @@
     gap: to-rem(12);
     cursor: pointer;
 
-    &:focus-within:focus-visible {
+    &:focus {
       .field__radio-text::before {
-        outline: 2px dashed var(--color-orange200);
+        outline: 1px solid var(--color-gray300);
         outline-offset: 2px;
       }
     }
@@ -143,7 +164,7 @@
     }
 
     &:focus-visible + .field__radio-text::before {
-      outline: 2px dashed var(--color-orange200);
+      outline: 1px solid var(--color-gray300);;
       outline-offset: 2px;
     }
   }
@@ -203,9 +224,9 @@
       gap: to-rem(8);
     }
 
-    &:focus-within:focus-visible {
+    &:focus-visible {
       .field__checkbox-label::before {
-        outline: 2px dashed var(--color-orange200);
+        outline: 1px solid var(--color-gray300);
         outline-offset: 2px;
       }
     }
@@ -232,7 +253,7 @@
       position: absolute;
       left: 0;
       top: to-rem(-2);
-      @include square(to-rem(26));
+      @include square(to-rem(25));
       border: 2px solid var(--color-black);
       border-radius: to-rem(3);
       background-color: var(--color-white);
@@ -295,12 +316,6 @@
     &:hover::after {
       transform: scaleX(1);
     }
-
-    &:focus-visible {
-      outline: 2px dashed var(--color-orange200);
-      outline-offset: 2px;
-      border-radius: 2px;
-    }
   }
 
   &__checkbox-input {
@@ -310,7 +325,7 @@
     height: 0;
 
     &:focus-visible + .field__checkbox-label::before {
-      outline: 2px dashed var(--color-orange200);
+      outline: 1px solid var(--color-gray300);
       outline-offset: 2px;
     }
   }
