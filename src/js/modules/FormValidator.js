@@ -11,6 +11,7 @@ class FormValidator {
     required: '[required]',
     adult: '[data-js-form-adult] input[name="isAdult"]',
     agreement: '[data-js-form-agreement]',
+    tabsSection: '[data-js-tabs-content]',
   }
 
   constructor(rootElement) {
@@ -30,6 +31,7 @@ class FormValidator {
       requiredElements: this.form.querySelectorAll(this.selectors.required),
       adultElements: this.form.querySelectorAll(this.selectors.adult),
       agreementElement: this.form.querySelector(this.selectors.agreement),
+      tabsSection: document.querySelector(this.selectors.tabsSection),
     }
 
     this.form.addEventListener('invalid', this.onInvalidField, true);
@@ -545,6 +547,15 @@ class FormValidator {
     }
 
     console.log('Форма отправлена!', this.getFormData());
+
+    if (this.elements.tabsSection) {
+      this.elements.tabsSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    this.form.reset();
   }
 
   onReset = () => {
