@@ -126,7 +126,7 @@
     }
 
     option[value=""][disabled] {
-      display: none;
+      color: var(--color-gray300);
     }
   }
 
