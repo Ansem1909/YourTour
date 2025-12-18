@@ -47,6 +47,7 @@
     @include mobile {
       gap: to-rem(25);
       line-height: 143%;
+      max-width: to-rem(276);
     }
   }
 
