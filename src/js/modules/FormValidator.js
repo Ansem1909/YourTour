@@ -333,24 +333,42 @@ class FormValidator {
     const field = e.target;
     const key = e.key;
     const currentValue = field.value;
+    const cursorPosition = field.selectionStart;
 
-    if (key === 'Backspace' || key === 'Delete') {
-      const cursorPosition = field.selectionStart;
-      const isCursorAtSeparator = currentValue[cursorPosition] === '.';
+    if (key !== 'Backspace' && key !== 'Delete') {
+      return;
+    }
 
-      if (isCursorAtSeparator) {
-        e.preventDefault();
+    if (currentValue[cursorPosition] !== '.') {
+      return;
+    }
+
+    e.preventDefault();
+
+    if (key === 'Backspace') {
+      if (cursorPosition > 0) {
+        const newValue = currentValue.substring(0, cursorPosition - 1) +
+          currentValue.substring(cursorPosition);
+        field.value = newValue;
 
         field.selectionStart = cursorPosition - 1;
         field.selectionEnd = cursorPosition - 1;
-
-        const event = new KeyboardEvent('keydown', {
-          key: 'Backspace',
-          bubbles: true
-        });
-        field.dispatchEvent(event);
       }
     }
+
+    else if (key === 'Delete') {
+      if (cursorPosition < currentValue.length - 1) {
+        const newValue = currentValue.substring(0, cursorPosition + 1) +
+          currentValue.substring(cursorPosition + 2);
+        field.value = newValue;
+
+        field.selectionStart = cursorPosition;
+        field.selectionEnd = cursorPosition;
+      }
+    }
+
+    field.dispatchEvent(new Event('input', { bubbles: true }));
+    field.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
   onDateInput = (e) => {
