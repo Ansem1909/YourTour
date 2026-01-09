@@ -13,6 +13,7 @@
   border-radius: var(--border-radius);
   padding: var(--indent-standart);
   overflow: hidden;
+  @include image-zoom-container('#{$self}__image');
   cursor: pointer;
 
   @include mobile-b {
@@ -22,13 +23,8 @@
   }
 
   &__picture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    @include absolute-cover;
     z-index: 0;
-    overflow: hidden;
   }
 
   &__image {
@@ -47,11 +43,7 @@
 
   &::after {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    @include absolute-cover;
     background: var(--gradient-top-to-bottom);
     border-radius: var(--border-radius);
     z-index: 1;

@@ -75,7 +75,7 @@ label,
 textarea,
 select,
 svg * {
-  transition-duration: var(--transition-duration);
+  @include common-transition();
 }
 
 a {
