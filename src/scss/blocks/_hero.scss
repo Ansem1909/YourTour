@@ -9,7 +9,8 @@
     align-items: center;
     row-gap: to-rem(49.5);
     text-align: center;
-    padding-block: fluid(118.5, 118);
+    padding-top: to-rem(117);
+    padding-bottom: to-rem(118.5);
 
     @include tablet {
       padding-top: to-rem(117);
