@@ -96,6 +96,10 @@ export default class FormValidator {
     this.form.querySelectorAll('input, select, textarea').forEach(field => {
       FieldValidator.hideFieldError(field);
     });
+
+    this.form.querySelectorAll('.field').forEach(fieldContainer => {
+      FieldValidator.hideFieldError(fieldContainer);
+    });
   }
 
   validateRequiredField = (e) => {
