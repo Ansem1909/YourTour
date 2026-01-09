@@ -1,6 +1,11 @@
+import { FieldValidator } from './validators/FieldValidator.js';
+import { DateValidator } from './validators/DateValidator.js';
+import { PhoneValidator } from './validators/PhoneValidator.js';
+import { EmailValidator } from './validators/EmailValidator.js';
+
 const rootSelector = '[data-js-form]';
 
-class FormValidator {
+export default class FormValidator {
   selectors = {
     root: rootSelector,
     phone: '[data-js-form-phone]',
@@ -87,112 +92,15 @@ class FormValidator {
     e.preventDefault();
   }
 
-  showFieldError(field, message) {
-    this.hideFieldError(field);
-
-    if (field.classList?.contains('field')) {
-      field.classList.add('field--has-error');
-
-      const errorElement = document.createElement('div');
-      errorElement.className = 'field__error';
-      errorElement.textContent = message;
-      errorElement.id = `${field.id || 'field-container'}-error`;
-      errorElement.setAttribute('role', 'alert');
-
-      field.appendChild(errorElement);
-      return;
-    }
-
-    field.setCustomValidity(message || '');
-
-    field.classList.add('field__control--error');
-
-    field.setAttribute('aria-invalid', 'true');
-    field.setAttribute('aria-describedby', `${field.id || field.name}-error`);
-
-    const errorElement = document.createElement('div');
-    errorElement.className = 'field__error';
-    errorElement.textContent = message || field.validationMessage || 'Поле заполнено неверно';
-    errorElement.id = `${field.id || field.name}-error`;
-    errorElement.setAttribute('role', 'alert');
-
-    const fieldContainer = field.closest('.field');
-    if (fieldContainer) {
-      fieldContainer.classList.add('field--has-error');
-      fieldContainer.appendChild(errorElement);
-    } else {
-      const parent = field.parentElement;
-      if (parent) {
-        parent.appendChild(errorElement);
-      }
-    }
-
-    const removeErrorOnInput = () => {
-      if (field.value.trim() && field.checkValidity()) {
-        this.hideFieldError(field);
-        field.removeEventListener('input', removeErrorOnInput);
-      }
-    };
-
-    field.addEventListener('input', removeErrorOnInput, { once: true });
-  }
-
-  hideFieldError(field) {
-    if (field.classList?.contains('field')) {
-      field.classList.remove('field--has-error');
-
-      const errorElements = field.querySelectorAll('.field__error');
-      errorElements.forEach(errorElement => {
-        errorElement.remove();
-      });
-
-      const inputs = field.querySelectorAll('input, select, textarea');
-      inputs.forEach(input => {
-        input.setCustomValidity('');
-        input.classList.remove('field__control--error');
-        input.removeAttribute('aria-invalid');
-        input.removeAttribute('aria-describedby');
-      });
-
-      return;
-    }
-
-    field.setCustomValidity('');
-    field.classList.remove('field__control--error');
-
-    field.removeAttribute('aria-invalid');
-    field.removeAttribute('aria-describedby');
-
-    const fieldContainer = field.closest('.field');
-    if (fieldContainer) {
-      fieldContainer.classList.remove('field--has-error');
-    }
-
-    const errorId = `${field.id || field.name}-error`;
-    const errorElement = document.getElementById(errorId) ||
-      field.parentElement.querySelector('.field__error');
-
-    if (errorElement) {
-      errorElement.remove();
-    }
-  }
-
   clearAllErrors() {
     this.form.querySelectorAll('input, select, textarea').forEach(field => {
-      this.hideFieldError(field);
+      FieldValidator.hideFieldError(field);
     });
   }
 
   validateRequiredField = (e) => {
     const field = e.target;
-
-    if (e.type === 'blur' || e.type === 'change') {
-      if (!field.value.trim()) {
-        this.showFieldError(field, 'Это поле обязательно для заполнения');
-      } else {
-        this.hideFieldError(field);
-      }
-    }
+    FieldValidator.validateRequiredField(field);
   }
 
   validateAdultField = (e) => {
@@ -203,11 +111,11 @@ class FormValidator {
 
     if (!isChecked) {
       if (adultContainer) {
-        this.showFieldError(adultContainer, 'Необходимо выбрать возраст');
+        FieldValidator.showFieldError(adultContainer, 'Необходимо выбрать возраст');
       }
     } else {
       if (adultContainer) {
-        this.hideFieldError(adultContainer);
+        FieldValidator.hideFieldError(adultContainer);
       }
     }
   }
@@ -218,194 +126,52 @@ class FormValidator {
 
     if (!checkbox.checked) {
       if (container) {
-        this.showFieldError(container, 'Примите условия договора');
+        FieldValidator.showFieldError(container, 'Примите условия договора');
       } else {
-        this.showFieldError(checkbox, 'Примите условия договора');
+        FieldValidator.showFieldError(checkbox, 'Примите условия договора');
       }
     } else {
       if (container) {
-        this.hideFieldError(container);
+        FieldValidator.hideFieldError(container);
       } else {
-        this.hideFieldError(checkbox);
+        FieldValidator.hideFieldError(checkbox);
       }
     }
   }
 
-  validateDateField(field) {
-    const value = field.value.trim();
+  onDateBlur = (e) => {
+    const field = e.target;
+    const validation = DateValidator.validateDateField(field);
 
-    if (!value) {
-      return { isValid: true };
+    if (!validation.isValid) {
+      FieldValidator.showFieldError(field, validation.message);
+    } else {
+      FieldValidator.hideFieldError(field);
     }
-
-    if (value.length !== 10) {
-      return {
-        isValid: false,
-        message: 'Введите полную дату в формате ДД.ММ.ГГГГ'
-      };
-    }
-
-    const selectedDate = this.parseDate(value);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-
-    if (!selectedDate) {
-      const yearMatch = value.match(/\.(\d{4})$/);
-      if (yearMatch) {
-        const year = parseInt(yearMatch[1], 10);
-        const currentYear = new Date().getFullYear();
-
-        if (year > currentYear + 5) {
-          return {
-            isValid: false,
-            message: `Максимальный год для бронирования - ${currentYear + 5}`
-          };
-        }
-      }
-      return {
-        isValid: false,
-        message: 'Введите корректную дату в формате ДД.ММ.ГГГГ'
-      };
-    }
-
-    if (selectedDate < today) {
-      return {
-        isValid: false,
-        message: 'Нельзя выбрать прошедшую дату'
-      };
-    }
-
-    return { isValid: true };
   }
 
   onDateBeforeInput = (e) => {
-    const field = e.target;
-    const inputType = e.inputType;
-    const data = e.data || '';
-
-    if (inputType && inputType.includes('delete')) {
-      return;
-    }
-
-    if (inputType === 'insertFromPaste' || inputType === 'insertFromDrop') {
-      return;
-    }
-
-    if (inputType !== 'insertText' && inputType !== 'insertReplacementText') {
-      return;
-    }
-
-    if (!/^\d$/.test(data)) {
-      e.preventDefault();
-      return;
-    }
-
-    const currentValue = field.value;
-    const selectionStart = field.selectionStart;
-    const selectionEnd = field.selectionEnd;
-
-    const currentDigits = currentValue.replace(/\D/g, '');
-
-    const firstDotIndex = currentValue.indexOf('.');
-    const secondDotIndex = currentValue.indexOf('.', firstDotIndex + 1);
-
-    const isCursorInYear = secondDotIndex !== -1 && selectionStart > secondDotIndex;
-
-    if (isCursorInYear) {
-      const yearDigits = currentValue.substring(secondDotIndex + 1).replace(/\D/g, '');
-
-      if (yearDigits.length >= 4) {
-        e.preventDefault();
-        return;
-      }
-    }
-
-    const selectedLength = selectionEnd - selectionStart;
-    const digitsAfterInput = currentDigits.length - selectedLength + (data ? 1 : 0);
-
-    if (digitsAfterInput > 8) {
-      e.preventDefault();
-      return;
-    }
+    DateValidator.handleDateBeforeInput(e);
   }
 
   onDateKeydown = (e) => {
-    const field = e.target;
-    const key = e.key;
-    const currentValue = field.value;
-    const cursorPosition = field.selectionStart;
-
-    if (key !== 'Backspace' && key !== 'Delete') {
-      return;
-    }
-
-    if (currentValue[cursorPosition] !== '.') {
-      return;
-    }
-
-    e.preventDefault();
-
-    if (key === 'Backspace') {
-      if (cursorPosition > 0) {
-        const newValue = currentValue.substring(0, cursorPosition - 1) +
-          currentValue.substring(cursorPosition);
-        field.value = newValue;
-
-        field.selectionStart = cursorPosition - 1;
-        field.selectionEnd = cursorPosition - 1;
-      }
-    }
-
-    else if (key === 'Delete') {
-      if (cursorPosition < currentValue.length - 1) {
-        const newValue = currentValue.substring(0, cursorPosition + 1) +
-          currentValue.substring(cursorPosition + 2);
-        field.value = newValue;
-
-        field.selectionStart = cursorPosition;
-        field.selectionEnd = cursorPosition;
-      }
-    }
-
-    field.dispatchEvent(new Event('input', { bubbles: true }));
-    field.dispatchEvent(new Event('change', { bubbles: true }));
+    DateValidator.handleDateKeydown(e);
   }
 
   onDateInput = (e) => {
     const field = e.target;
-
-    let value = field.value.replace(/\D/g, '');
-
-    if (value.length > 8) {
-      value = value.substring(0, 8);
-    }
-
-    let formattedValue = '';
-    if (value.length > 0) {
-      formattedValue = value.substring(0, 2);
-    }
-    if (value.length > 2) {
-      formattedValue += '.' + value.substring(2, 4);
-    }
-    if (value.length > 4) {
-      const year = value.substring(4, 8);
-      formattedValue += '.' + year;
-    }
+    const formattedValue = DateValidator.formatDateInput(field.value);
 
     if (field.value !== formattedValue) {
       field.value = formattedValue;
 
       const cursorPosition = field.selectionStart;
       setTimeout(() => {
-        const newCursorPos = this.calculateNewCursorPosition(cursorPosition, field.value);
+        const newCursorPos = DateValidator.calculateNewCursorPosition(cursorPosition, field.value);
         field.selectionStart = newCursorPos;
         field.selectionEnd = newCursorPos;
       }, 0);
     }
-  }
-
-  calculateNewCursorPosition(oldPos, newValue) {
-    return oldPos <= newValue.length ? oldPos : newValue.length;
   }
 
   getFormData() {
@@ -413,81 +179,18 @@ class FormValidator {
     return Object.fromEntries(formData);
   }
 
-  parseDate(dateString) {
-    if (!dateString) return null;
-
-    const dateRegex = /^(\d{2})\.(\d{2})\.(\d{4})$/;
-    const match = dateString.match(dateRegex);
-
-    if (!match) return null;
-
-    const day = parseInt(match[1], 10);
-    const month = parseInt(match[2], 10);
-    const year = parseInt(match[3], 10);
-
-    const currentYear = new Date().getFullYear();
-    const maxAllowedYear = currentYear + 5;
-
-    if (year < 1000 || year > maxAllowedYear) return null;
-    if (month < 1 || month > 12) return null;
-
-    const daysInMonth = new Date(year, month, 0).getDate();
-    if (day < 1 || day > daysInMonth) return null;
-
-    const date = new Date(year, month - 1, day);
-
-    if (isNaN(date.getTime())) return null;
-
-    if (date.getDate() !== day || date.getMonth() !== month - 1 || date.getFullYear() !== year) {
-      return null;
-    }
-
-    return date;
-  }
-
-  onDateBlur = (e) => {
-    const field = e.target;
-    const validation = this.validateDateField(field);
-
-    if (!validation.isValid) {
-      this.showFieldError(field, validation.message);
-    } else {
-      this.hideFieldError(field);
-    }
-  }
-
   onPhoneInput = (e) => {
-    let input = e.target.value.replace(/\D/g, '');
-    input = input.substring(0, 11);
-
-    let formattedValue = '+7 ';
-    if (input.length > 1) {
-      formattedValue += '(' + input.substring(1, 4);
-    }
-    if (input.length >= 5) {
-      formattedValue += ') ' + input.substring(4, 7);
-    }
-    if (input.length >= 8) {
-      formattedValue += '-' + input.substring(7, 9);
-    }
-    if (input.length >= 10) {
-      formattedValue += '-' + input.substring(9, 11);
-    }
-
-    e.target.value = formattedValue;
+    e.target.value = PhoneValidator.formatPhoneInput(e.target.value);
   }
 
   onEmailBlur = (e) => {
     const field = e.target;
+    const validation = EmailValidator.validateEmail(field);
 
-    if (field.value.trim() === '') {
-      return;
-    }
-
-    if (!field.checkValidity()) {
-      this.showFieldError(field, 'Введите корректный email, например an@mail.ru');
+    if (!validation.isValid) {
+      FieldValidator.showFieldError(field, validation.message);
     } else {
-      this.hideFieldError(field);
+      FieldValidator.hideFieldError(field);
     }
   }
 
@@ -506,7 +209,7 @@ class FormValidator {
 
     this.elements.requiredElements.forEach(field => {
       if (!field.value.trim()) {
-        this.showFieldError(field, 'Это поле обязательно для заполнения');
+        FieldValidator.showFieldError(field, 'Это поле обязательно для заполнения');
         invalidFields.push(field);
         isValid = false;
       }
@@ -514,9 +217,9 @@ class FormValidator {
 
     [this.elements.dateFromElement, this.elements.dateToElement].forEach(field => {
       if (field && field.value.trim()) {
-        const validation = this.validateDateField(field);
+        const validation = DateValidator.validateDateField(field);
         if (!validation.isValid) {
-          this.showFieldError(field, validation.message);
+          FieldValidator.showFieldError(field, validation.message);
           invalidFields.push(field);
           isValid = false;
         }
@@ -524,8 +227,9 @@ class FormValidator {
     });
 
     if (this.elements.emailElement && this.elements.emailElement.value.trim() !== '') {
-      if (!this.elements.emailElement.checkValidity()) {
-        this.showFieldError(this.elements.emailElement, 'Введите корректный email, например an@mail.ru');
+      const validation = EmailValidator.validateEmail(this.elements.emailElement);
+      if (!validation.isValid) {
+        FieldValidator.showFieldError(this.elements.emailElement, validation.message);
         invalidFields.push(this.elements.emailElement);
         isValid = false;
       }
@@ -535,7 +239,7 @@ class FormValidator {
     if (!adultChecked) {
       const container = document.querySelector(this.selectors.adult)?.closest('.field');
       if (container) {
-        this.showFieldError(container, 'Необходимо выбрать возраст');
+        FieldValidator.showFieldError(container, 'Необходимо выбрать возраст');
         invalidFields.push(container);
         isValid = false;
       }
@@ -544,10 +248,10 @@ class FormValidator {
     if (this.elements.agreementElement && !this.elements.agreementElement.checked) {
       const container = this.elements.agreementElement.closest('.field');
       if (container) {
-        this.showFieldError(container, 'Примите условия договора');
+        FieldValidator.showFieldError(container, 'Примите условия договора');
         invalidFields.push(container);
       } else {
-        this.showFieldError(this.elements.agreementElement, 'Примите условия договора');
+        FieldValidator.showFieldError(this.elements.agreementElement, 'Примите условия договора');
         invalidFields.push(this.elements.agreementElement);
       }
       isValid = false;
@@ -585,5 +289,3 @@ class FormValidator {
     }, 0);
   }
 }
-
-export default FormValidator;
