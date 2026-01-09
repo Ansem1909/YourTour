@@ -167,3 +167,81 @@
     letter-spacing: -0.16px,
   }
 }
+
+@mixin underline-hover($color, $bottom: 0, $active-color: null) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: $bottom;
+    width: 100%;
+    height: 1px;
+    background-color: $color;
+    transform: scaleX(0);
+    transition: transform var(--transition-duration) ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+
+  @if $active-color {
+    &:active::after {
+      background-color: $active-color;
+    }
+  }
+}
+
+@mixin common-transition($property: all) {
+  transition: $property var(--transition-duration) ease;
+}
+
+@mixin image-zoom-container($selector: '__image') {
+  overflow: hidden;
+
+  #{$selector} {
+    transition: transform var(--transition-duration) ease;
+    transform-origin: center;
+  }
+
+  &:hover #{$selector} {
+    transform: scale(1.2);
+  }
+}
+
+@mixin absolute-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin text-link-active($color) {
+  &:active {
+    color: $color;
+
+    &::after {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin underline-animation($bottom: 0, $height: 1px) {
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: $bottom;
+    width: 100%;
+    height: $height;
+    transform: scaleX(0);
+    transition: transform var(--transition-duration) ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
