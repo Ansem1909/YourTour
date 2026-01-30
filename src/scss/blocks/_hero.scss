@@ -8,7 +8,7 @@
     justify-content: safe center;
     align-items: center;
     min-height: calc(100dvh - 88px);
-    row-gap: to-rem(50);
+    row-gap: to-rem(49.5);
     text-align: center;
 
     @media (max-height: 800px) {
@@ -34,6 +34,14 @@
         row-gap: fluid(39, 10);
         padding-block: fluid(54, 15);
       }
+    }
+  }
+
+  &__title {
+    margin-top: -1.5px;
+
+    @include tablet {
+      margin-top: 0;
     }
   }
 
