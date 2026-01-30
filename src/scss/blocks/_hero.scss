@@ -13,6 +13,12 @@
 
     @media (max-height: 800px) {
       row-gap: fluid(30, 5);
+      margin-top: calc(-1 * #{fluid(30, 5)});
+      padding-top: clamp(-30px, 2vh, 50px);
+    }
+
+    @media (max-height: 550px) {
+      margin-top: clamp(-60px, -30px, 1px);
     }
 
     @include tablet {
@@ -24,15 +30,25 @@
         row-gap: fluid(30, 10);
         padding-block: fluid(50, 10);
       }
+
+      @media (max-height: 550px) {
+        margin-top: clamp(-100px, -50px, -1px);
+      }
     }
 
-    @include mobile {
+    @include mobile-b {
       row-gap: to-rem(39);
-      padding-block: to-rem(54.5);;
+      padding-block: to-rem(54.5);
+      margin-top: 0;
 
       @media (max-height: 487px) {
         row-gap: fluid(39, 10);
         padding-block: fluid(54, 15);
+      }
+
+      @media (max-height: 400px) {
+        margin-top: clamp(-50px, -25px, -1px);
+        padding-block: to-rem(10);
       }
     }
   }
