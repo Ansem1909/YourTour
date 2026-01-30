@@ -10,7 +10,8 @@
     border-radius: to-rem(10);
     @include p-small;
     color: var(--color-black);
-    @include common-transition();
+    transition: color var(--transition-duration) ease,
+                background-color var(--transition-duration) ease;
 
     &:hover {
       color: var(--color-white);

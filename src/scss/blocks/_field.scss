@@ -24,7 +24,8 @@
     padding: var(--indent-mini);
     border: 1px solid var(--color-beige200);
     border-radius: to-rem(10);
-    transition: color var(--transition-duration) ease;
+    transition: color var(--transition-duration) ease,
+                background-color var(--transition-duration) ease;
 
     @include tablet-s {
       padding: to-rem(9.8);
@@ -51,7 +52,8 @@
 
     &:is(textarea) {
       width: 100%;
-      resize: none;
+      resize: vertical;
+      min-height: to-rem(132);
       height: to-rem(153);
       overflow-y: auto;
 
@@ -151,13 +153,9 @@
 
   &__radio-input {
     position: absolute;
-    opacity: 0;
     width: 0;
     height: 0;
-
-    &:checked + .field__radio-text::before {
-      border-color: var(--color-black);
-    }
+    opacity: 0;
 
     &:checked + .field__radio-text::after {
       transform: translateY(-50%) scale(1);
@@ -185,12 +183,11 @@
       position: absolute;
       left: 0;
       top: 50%;
-      transform: translateY(-50%);
       @include square(to-rem(26));
+      background-color: var(--color-white);
       border: 2px solid var(--color-black);
       border-radius: 50%;
-      background-color: var(--color-white);
-      transition: all var(--transition-duration) ease;
+      transform: translateY(-50%);
 
       @include mobile {
         @include square(to-rem(20));
@@ -202,10 +199,10 @@
       position: absolute;
       left: to-rem(7);
       top: 50%;
-      transform: translateY(-50%) scale(0);
       @include square(to-rem(12));
-      border-radius: 50%;
       background-color: var(--color-black);
+      border-radius: 50%;
+      transform: translateY(-50%) scale(0);
       transition: transform var(--transition-duration) ease;
 
       @include mobile {
@@ -236,9 +233,9 @@
     position: relative;
     padding-left: to-rem(45);
     @include p-small;
+    line-height: 1.4;
     color: var(--color-gray300);
     cursor: pointer;
-    line-height: 1.4;
 
     @include tablet {
       padding-left: to-rem(37);
@@ -257,7 +254,8 @@
       border: 2px solid var(--color-black);
       border-radius: to-rem(3);
       background-color: var(--color-white);
-      transition: all var(--transition-duration) ease;
+      transition: border-color var(--transition-duration) ease,
+                  background-color var(--transition-duration) ease;
 
       @include tablet {
         top: to-rem(-1);
@@ -273,14 +271,15 @@
       position: absolute;
       left: to-rem(13);
       top: to-rem(11);
-      transform: translate(-50%, -50%) scale(0);
       width: to-rem(14);
       height: to-rem(9);
       background-image: url(@/assets/icons/check-mark.svg);
       background-repeat: no-repeat;
       background-position: center;
       opacity: 0;
-      transition: all var(--transition-duration) ease;
+      transform: translate(-50%, -50%) scale(0);
+      transition: transform var(--transition-duration) ease,
+                  opacity var(--transition-duration) ease;
 
       @include mobile {
         left: to-rem(11);
@@ -290,9 +289,9 @@
   }
 
   &__checkbox-link {
-    @include underline-hover(var(--color-black), 0);
     display: inline;
     color: var(--color-black);
+    @include underline-hover(var(--color-black), 0);
 
     @include text-link-active(var(--color-green400));
   }

@@ -5,7 +5,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  @include common-transition();
+  transition: background-color var(--transition-duration) ease,
+              backdrop-filter var(--transition-duration) ease,
+              box-shadow var(--transition-duration) ease;
 
   &__container{
     padding-block: to-rem(28.88);
@@ -18,7 +20,7 @@
       padding-inline: to-rem(57);
     }
 
-    @include mobile{
+    @include tablet-s{
       padding-block: to-rem(32);
       padding-left: to-rem(16);
       padding-right: var(--indent-mini);
@@ -61,8 +63,10 @@
   &--scrolled {
     background: var(--color-header);
     backdrop-filter: blur(10px);
-    @include common-transition();
     box-shadow: 0 2px 20px var(--color-black);
+    transition: background-color var(--transition-duration) ease,
+                backdrop-filter var(--transition-duration) ease,
+                box-shadow var(--transition-duration) ease;
 
     .header__menu-link {
       color: var(--color-black);

@@ -5,26 +5,35 @@
   &__container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: safe center;
     align-items: center;
-    row-gap: to-rem(49.5);
+    min-height: calc(100dvh - 88px);
+    row-gap: to-rem(50);
     text-align: center;
-    padding-top: to-rem(117);
-    padding-bottom: to-rem(118.5);
 
-    @include tablet {
-      padding-top: to-rem(117);
-      padding-bottom: to-rem(118);
-      row-gap: to-rem(50.5);
+    @media (max-height: 800px) {
+      row-gap: fluid(30, 5);
     }
 
-    @include tablet-s {
-      padding-block: fluid(118, 54.5);
+    @include tablet {
+      row-gap: to-rem(50.5);
+      padding-top: to-rem(117);
+      padding-bottom: to-rem(118);
+
+      @media (max-height: 800px) {
+        row-gap: fluid(30, 10);
+        padding-block: fluid(50, 10);
+      }
     }
 
     @include mobile {
-      padding-block: to-rem(54.5);
       row-gap: to-rem(39);
+      padding-block: to-rem(54.5);;
+
+      @media (max-height: 487px) {
+        row-gap: fluid(39, 10);
+        padding-block: fluid(54, 15);
+      }
     }
   }
 
