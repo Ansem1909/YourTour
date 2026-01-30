@@ -4,6 +4,10 @@
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
+
+  @include tablet-s {
+    max-width: none;
+  }
 }
 
 .container-wide {
@@ -19,9 +23,9 @@
     --container-padding-x: #{to-rem(20)};
   }
 
-  @include mobile {
-    --container-width: #{to-rem(318)};
+  @include tablet-s {
     --container-padding-x: #{to-rem(21)};
+    max-width: none;
   }
 }
 
