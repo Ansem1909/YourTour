@@ -3,10 +3,10 @@
 
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(#{to-rem(310)}, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: to-rem(30);
 
-  @include tablet {
+  @media (max-width: #{to-rem(1100)}){
     grid-template-columns: repeat(auto-fit, minmax(#{to-rem(325)}, 1fr));
     gap: to-rem(18);
   }
